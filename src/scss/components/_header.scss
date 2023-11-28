@@ -1,0 +1,66 @@
+.header {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    grid-template-areas:
+      'phone phone nS nS nS nS nS nS nS nS nS nS'
+      'logo logo nM nM nM nM nM nM nM nM nM nM'
+      'fT fT fT fT fT fT fT fT fT fT UB UB'
+  }
+
+  .logo {
+    grid-area: logo;
+    @include flex-y-center;
+    grid-row: 2/span 1;
+  }
+
+  .phone-wrap {
+    grid-area: phone;
+    grid-row: 1/span 1;
+    @include flex-y-center;
+  }
+
+  .nav {
+    @include flex-y-center;
+    justify-self: flex-end;
+    white-space: nowrap;
+
+    &__list {
+      @include flex-y-center;
+    }
+
+    &.nav-sec {
+      position: relative;
+      @include backColor;
+      grid-area: nS;
+      color: $grey;
+      padding: 18px 0;
+
+      .nav__list {
+        gap: 64px;
+      }
+
+    }
+
+    &.nav-main {
+      grid-area: nM;
+
+      .nav__list {
+        gap: 91px;
+      }
+
+    }
+  }
+
+  .form-top {
+    grid-area: fT;
+    grid-row: 3/span 1;
+    margin-bottom: 32px;
+  }
+
+  .userBasket {
+    grid-area: UB;
+    justify-self: flex-end;
+  }
+}

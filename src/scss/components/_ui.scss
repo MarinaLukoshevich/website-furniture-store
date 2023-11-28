@@ -1,0 +1,577 @@
+@import "../vars.scss";
+@import "../mixins.scss";
+@import "../fonts.scss";
+
+// После удаления ui.html - удалить этот селектор
+.ui-kit {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+
+
+
+
+
+// SVG
+.icon {
+  transition: fill $tr;
+}
+
+.soc-svg,
+.close-svg {
+  fill: $grey;
+}
+
+.user-svg,
+.basket-svg {
+  fill: $primary;
+}
+
+// icon::hov,foc,active (close,soc,user,basket)
+@mixin iconState() {
+  &:hover {
+    .icon {
+      fill: $primary;
+    }
+  }
+
+  &:focus-visible:not(:hover):not(:active) {
+    &:after {
+      opacity: 1;
+    }
+
+    .icon {
+      fill: $white;
+    }
+  }
+
+  &:active {
+    &:after {
+      opacity: 0;
+    }
+
+    .icon {
+      fill: $primary-s;
+    }
+  }
+
+}
+
+.arrow-svg {
+  .circle {
+    stroke: $primary;
+    fill: transparent;
+    transition: $tr;
+    transition-property: stroke, fill;
+  }
+
+  .path {
+    stroke: $primary;
+    transition: stroke $tr;
+  }
+}
+
+.arrow-disab {
+  cursor: auto;
+  .arrow-svg {
+    .circle {
+      stroke: $grey;
+    }
+
+    .path {
+      stroke: $grey;
+    }
+  }
+}
+
+//arrow-svg::hover
+@mixin arrow-svgH() {
+  .arrow-svg {
+    .circle {
+      fill: $primary;
+    }
+
+    .path {
+      stroke: $white;
+    }
+  }
+}
+
+//arrow-svg::focus
+@mixin arrow-svgF() {
+  .arrow-svg {
+    .circle {
+      fill: $primary-l;
+    }
+
+    .path {
+      stroke: $white;
+    }
+  }
+}
+
+//arrow-svg::active
+@mixin arrow-svgA() {
+  .arrow-svg {
+    .circle {
+      stroke: $primary-s;
+      fill: $primary-s;
+    }
+
+    .path {
+      stroke: $white;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+// BUTTON
+.btn {
+  font-size: 16px;
+  line-height: 16px;
+  border: $bor-2;
+  border-radius: $r-10;
+  transition: $tr;
+  transition-property: background-color, border-color, color;
+
+  &:active {
+    border-color: $primary-s;
+    color: $white;
+    background-color: $primary-s;
+  }
+}
+
+.btn-stroke {
+  padding: 19px 35px;
+  font-weight: 600;
+  color: $primary;
+  border-color: $primary;
+
+  &:hover:not(:active) {
+    color: $white;
+    background-color: $primary;
+  }
+
+  &:focus-visible:not(:hover):not(:active) {
+    border-color: $primary;
+    color: $white;
+    background-color: $primary-l;
+  }
+}
+
+.btn-bg {
+  padding: 22px 47px;
+  font-weight: 700;
+  color: $white;
+  background-color: $primary;
+
+  &:hover:not(:active) {
+    background-color: $primary-l;
+  }
+
+  &:focus-visible:not(:hover):not(:active) {
+    border-color: $primary-s;
+    background-color: $primary-l;
+  }
+}
+
+.btn-disab {
+  cursor: auto;
+  padding: 22px 47px;
+  font: 700 16px / 16px $font-f;
+  font-weight: 700;
+  border: $bor-2;
+  border-radius: $r-10;
+  color: $grey;
+  background-color: $grey-md;
+
+}
+
+.btn-pagin {
+  padding: 8px 11px;
+}
+
+.btn-close {
+  @include flex-xy-center;
+  width: 16px;
+  height: 16px;
+  @include iconState();
+  transition: background-color $tr;
+
+  &:focus-visible:not(:hover):not(:active) {
+    background-color: $pink-v;
+
+    .icon {
+      fill: $primary-s;
+    }
+  }
+}
+
+
+
+
+
+
+
+// INPUT
+.input {
+  font-family: $font-f;
+  font-size: 16px;
+  color: $black;
+  transition: $tr;
+  transition-property: background-color, border-color;
+}
+
+.input-cost {
+  padding: 8px 11px;
+  border: $bor-1;
+  border-color: $grey;
+  width: 86px;
+
+  &::placeholder {
+    color: $grey-s;
+  }
+
+  &:hover:not(:active) {
+    border-color: $primary;
+  }
+
+  &:focus-visible:not(:hover):not(:active) {
+    border-color: $primary;
+    background-color: $pink-v;
+  }
+
+  &:active {
+    border-color: $primary-s;
+  }
+}
+
+
+
+
+.form-top {
+  @include flex-y-center;
+  justify-content: flex-start;
+  padding: 9px 32px;
+  border-radius: $r-10;
+  background-color: $grey-l;
+  transition: $tr;
+  transition-property: background-color, border-color;
+
+
+  .search-svg {
+    fill: $grey;
+    margin-right: 7px;
+    transition: fill $tr;
+  }
+
+  .input-top {
+    line-height: 40px;
+    background-color: $grey-l;
+    width: 100%;
+
+    &::placeholder {
+      color: $grey;
+    }
+  }
+
+  &:hover:not(:active) {
+    background-color: $grey-md;
+
+    .input-top {
+      background-color: $grey-md;
+    }
+  }
+
+  &:focus-within:not(:hover):not(:active) {
+    border-color: $primary;
+    background-color: $pink-l;
+
+    .input-top {
+      border-color: $primary;
+      background-color: $pink-l;
+    }
+  }
+
+  &:active {
+    .search-svg {
+      fill: $primary;
+    }
+  }
+
+  button {
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+
+    &:hover {
+      @include arrow-svgH;
+    }
+
+    &:focus-visible:not(:active) {
+      @include arrow-svgF;
+    }
+
+    &:active {
+      @include arrow-svgA;
+    }
+
+
+
+  }
+
+}
+
+.input-bottom {
+  padding: 7px 18px;
+  border: $bor-1;
+  line-height: 40px;
+  //
+  border-radius: $r-10;
+  background-color: $grey-l;
+
+  &::placeholder {
+    color: $grey;
+  }
+
+  &:hover:not(:active) {
+    background-color: $grey-md;
+  }
+
+  &:focus-visible:not(:hover):not(:active) {
+    border-color: $primary;
+    background-color: $pink-l;
+  }
+
+  // валидное поле !!!
+  &:active {
+    border-color: $green;
+  }
+}
+
+
+
+
+
+
+
+
+// LINK
+.main-link,
+.sec-link,
+.to-link {
+  transition: color $tr;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:active {
+    color: $primary-s;
+  }
+}
+
+.sec-link,
+.main-link {
+  position: relative;
+  @include clickZoneX-7;
+
+  &:focus-visible:not(:hover):not(:active) {
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.sec-link {
+  color: $grey;
+
+  &:focus-visible:not(:hover):not(:active) {
+    color: $primary-s;
+  }
+}
+
+.main-link {
+  font-size: 16px;
+  line-height: 22px;
+
+  &:focus-visible:not(:hover):not(:active) {
+    color: $black;
+  }
+}
+
+.to-link {
+  font: 700 16px / 19px $font-f;
+  color: $primary;
+  @include flex-y-center;
+  gap: 5px;
+
+  &__text {
+    position: relative;
+    @include borderBot;
+  }
+
+  .arrow-svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  &:hover,
+  &:focus-visible:not(:active) {
+    .to-link__text {
+      &::after {
+        background-color: $primary;
+      }
+    }
+  }
+
+  &:hover {
+    @include arrow-svgH;
+  }
+
+  &:focus-visible:not(:active) {
+    @include arrow-svgF;
+  }
+
+  &:active {
+    color: $primary-s;
+
+    .to-link__text {
+      &::after {
+        background-color: $primary-s;
+      }
+    }
+
+    @include arrow-svgA;
+  }
+}
+
+
+.phone-link {
+  @include flex-y-center;
+  color: $orange;
+  background-color: none;
+  transition: $tr;
+  transition-property: background-color, color;
+
+  .phone-svg {
+    fill: $orange;
+    transition: fill $tr;
+  }
+
+  &:hover {
+    color: $orange-l;
+
+    .phone-svg {
+      fill: $orange-l;
+    }
+  }
+
+  &:focus-visible:not(:hover):not(:active) {
+    color: $orange;
+    background-color: $bone;
+
+    .phone-svg {
+      fill: $orange;
+    }
+  }
+
+  &:active {
+    color: $orange-s;
+    background-color: none;
+
+    .phone-svg {
+      fill: $orange-s;
+    }
+  }
+}
+
+
+
+
+
+.soc {
+  @include flex-y-center;
+  gap: 20px;
+
+  &__item {
+    &-link {
+      @include clickZone-3;
+      position: relative;
+      @include flex-xy-center;
+      height: 30px;
+      @include iconState();
+    }
+  }
+}
+
+.userBasket {
+  @include flex-y-center;
+  gap: 32px;
+
+  &__item {
+    .userBasket-link {
+      @include clickZone-3;
+      position: relative;
+      @include flex-xy-center;
+      @include iconState();
+
+      &:hover {
+        .icon {
+          fill: $primary-l;
+        }
+      }
+
+      &:active {
+        .icon {
+          fill: $primary-s;
+        }
+      }
+    }
+
+    &:nth-child(1) {
+      .userBasket-link {
+        width: 28px;
+        height: 30px;
+      }
+    }
+
+    &:nth-child(2) {
+      .userBasket-link {
+        width: 43px;
+
+        .basket-wrap {
+          position: relative;
+          display: flex;
+          justify-content: flex-end;
+          width: 41px;
+
+          .basket-count {
+            content: '';
+            position: absolute;
+            @include flex-xy-center;
+            top: 5px;
+            left: 0;
+            width: 14px;
+            height: 15px;
+            border-radius: 100%;
+            background-color: $orange;
+            color: $white;
+            font: 700 10px / 10px $font-f;
+          }
+        }
+      }
+    }
+
+  }
+}

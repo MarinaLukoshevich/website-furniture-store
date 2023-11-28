@@ -1,0 +1,157 @@
+// $browser-context: 16; // Default
+
+// @function rem($pixels, $context: $browser-context) {
+//   @return #{$pixels/$context}rem;
+// }
+
+
+
+// @mixin footerToBottom {
+//   display: grid;
+//   grid-template-columns: 100%;
+//   grid-template-rows: auto 1fr auto;
+//   min-height: 100vh;
+// }
+
+// @mixin mr($value) {
+//     &:not(:last-child) {
+//         margin-right: $value;
+//     }
+// }
+
+// @mixin ml($value) {
+//     &:not(:last-child) {
+//         margin-left: $value;
+//     }
+// }
+
+// @mixin mb($value) {
+//     &:not(:last-child) {
+//         margin-bottom: $value;
+//     }
+// }
+
+// @mixin mt($value) {
+//     &:not(:last-child) {
+//         margin-top: $value;
+//     }
+// }
+
+// @mixin pseudo() {
+//     content: "";
+//     display: block;
+// }
+
+
+
+
+
+
+
+@mixin image-set($pathToImage) {
+  background-image: url("#{$pathToImage}.jpg");
+  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
+  background-image: image-set(
+    /* stylelint-disable-next-line function-comma-newline-after */
+    "#{$pathToImage}.webp" type("image/webp"),
+    "#{$pathToImage}.jpg" type("image/jpg"));
+}
+
+// @mixin bg-cover {
+//   background-color: $grey-l;
+//   background-position: center;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+// }
+
+
+@mixin backColor() {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: -200%;
+    right: -200%;
+    bottom: 0;
+    background-color: $grey-l;
+  }
+}
+
+
+@mixin clickZone-3() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    z-index: -1;
+    background-color: $primary-l;
+    opacity: 0;
+    transition: opacity $tr;
+  }
+}
+
+@mixin clickZoneX-7() {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0px;
+    left: -7px;
+    right: -7px;
+    bottom: 0px;
+    background-color: $pink-v;
+    opacity: 0;
+    transition: $tr;
+    transition-property: background-color, opacity;
+  }
+}
+
+@mixin borderBot() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color $tr;
+  }
+}
+
+
+@mixin flex-y-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin flex-xy-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-space {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+@mixin flexC {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flexC-x-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

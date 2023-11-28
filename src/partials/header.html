@@ -1,0 +1,84 @@
+<header class="header">
+  <div class="container header__container">
+
+    @include('components/logo.html')
+
+    <div class="phone-wrap">
+      @include('components/phone.html')
+    </div>
+
+    <nav class="nav nav-sec" title="Дополнительное меню">
+      <ul class="nav__list list-reset">
+        <li class="nav__list-item">
+          <a href="#" class="sec-link">
+            О компании
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="sec-link">
+            Гарантия и возврат
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="sec-link">
+            Корпоративным клиентам
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="sec-link">
+            Дизайн-решение
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav class="nav nav-main" title="Основное меню">
+      <ul class="nav__list list-reset">
+        <li class="nav__list-item">
+          <a href="#" class="main-link">
+            Каталог
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="main-link">
+            Магазины
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="main-link">
+            Шоу-рум
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="main-link">
+            Доставка и оплата
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="main-link">
+            Дисконт
+          </a>
+        </li>
+        <li class="nav__list-item">
+          <a href="#" class="main-link">
+            Контакты
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <form class="form form-top" action="https://jsonplaceholder.typicode.com/posts" method="post">
+      <svg class="search-svg" width="20px" height="20px" viewbox="0 0 20 20">
+        <use xlink:href="img/sprite.svg#search"></use>
+      </svg>
+      <input type="text" name="search" class="input-reset input input-top" placeholder="Я хочу купить...">
+      <button class="btn-reset" aria-label="Искать по сайту">
+        @include('components/arrow.html')
+      </button>
+    </form>
+
+    @include('components/userBasket.html')
+
+
+  </div>
+</header>

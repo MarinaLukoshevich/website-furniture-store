@@ -1,0 +1,23 @@
+.banner {
+  background: $grey-l no-repeat center / cover;
+  @include image-set('../../img/banner-desk');
+  padding: 150px 0;
+
+  &__container {
+    .title2-banner {
+      width: 39.5%;
+      margin-bottom: 49px;
+
+      &__top {
+        font: 900 60px / 72px "PlayfairDisplay-Black";
+        color: $gold;
+      }
+
+      &__bottom {
+        font-weight: 400;
+        line-height: 57px;
+        color: $white;
+      }
+    }
+  }
+}

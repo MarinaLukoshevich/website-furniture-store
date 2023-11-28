@@ -1,0 +1,421 @@
+@import "mixins";
+
+
+@include tablet {
+  .header {
+    &__container {
+      grid-template-columns: repeat(9, 1fr);
+      row-gap: 0;
+      grid-template-areas:
+        'phone phone phone phone phone phone phone phone phone'
+        'nS nS nS nS nS nS nS UB UB'
+        'logo logo nM nM nM nM nM nM nM'
+        'fT fT fT fT fT fT fT fT fT'
+    }
+
+    .logo {
+      grid-row: 3/span 1;
+      padding: 32px 0;
+    }
+
+    .phone-wrap {
+      padding: 18px 0;
+    }
+
+    .nav {
+
+      &.nav-sec {
+        grid-row: 2/span 1;
+        justify-self: flex-start;
+      }
+
+      &.nav-main {
+        grid-row: 3/span 1;
+
+        .nav__list {
+          gap: 40px;
+        }
+
+      }
+    }
+
+    .form-top {
+      grid-row: 4/span 1;
+      max-width: 77%;
+    }
+
+    .userBasket {
+      grid-row: 2/span 1;
+    }
+  }
+
+
+  .hero {
+    background-position: left bottom;
+    background-size: 137%;
+
+    &__container {
+      .title2-banner {
+        width: 59%;
+      }
+    }
+  }
+
+
+
+
+
+
+  .banner {
+    @include image-set('../../img/banner-tab');
+
+    &__container {
+      .title2-banner {
+        width: 55%;
+      }
+    }
+  }
+
+
+
+  .footer {
+    .foot {
+      &__wrap {
+        gap: 75px;
+      }
+
+      &__nav {
+        .nav__head {
+          gap: 75px;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+@include tabletSm {
+  .header {
+    &__container {
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas:
+        'phone phone phone phone phone phone'
+        'nS nS nS nS nS nS'
+        'logo logo logo UB UB UB'
+        'nM nM nM nM nM nM'
+        'fT fT fT fT fT fT'
+    }
+
+    .nav {
+      &.nav-sec {
+        .nav__list {
+          gap: 35px;
+        }
+      }
+
+      &.nav-main {
+        grid-row: 4/span 1;
+        padding-bottom: 34px;
+
+        .main-link {
+          font-size: 14px;
+          line-height: 19px;
+        }
+      }
+    }
+
+    .form-top {
+      grid-row: 5/span 1;
+      max-width: 100%;
+    }
+
+    .userBasket {
+      grid-row: 3/span 1;
+    }
+  }
+
+
+
+
+
+  .hero {
+    background: $grey-l no-repeat center / cover;
+    @include image-set('../../img/hero-tabSm');
+    padding: 80px 0;
+
+    &__container {
+      .title2-banner {
+        width: 90%;
+      }
+    }
+  }
+
+
+
+
+
+
+  .banner {
+    background-position: left center;
+
+    &__container {
+      margin-left: -36px;
+
+      .title2-banner {
+        width: 84%;
+      }
+    }
+  }
+
+
+
+
+
+
+  .footer {
+    .foot {
+      &__wrap {
+        @include flexC;
+        gap: 25px;
+      }
+
+      &__logoSoc {
+        @include flex-center-space;
+        width: 100%;
+
+        .soc {
+          padding-right: 50px;
+        }
+      }
+
+      &__nav {
+        .nav__head {
+          gap: 39px;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+@include mob {
+  .header {
+    &__container {
+      gap: 16px;
+      grid-template-areas:
+        'logo logo logo logo logo logo'
+        'phone phone phone UB UB UB'
+        'nM nM nM nM nM nM'
+        'fT fT fT fT fT fT'
+    }
+
+    .logo {
+      position: relative;
+      grid-row: 1/span 1;
+      padding: 12px 0;
+
+      &__img {
+        margin: 0 auto;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -10;
+        top: 0;
+        left: -200%;
+        right: -200%;
+        bottom: 0;
+        background-color: $grey-l;
+      }
+    }
+
+    .phone-wrap {
+      position: relative;
+      grid-row: 2/span 1;
+      padding: 13px 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -200%;
+        right: -200%;
+        bottom: 0;
+        border: $bor-1;
+        border-color: $grey-l;
+      }
+    }
+
+
+    .nav {
+      &.nav-sec {
+        display: none;
+      }
+
+      &.nav-main {
+        grid-row: 3/span 1;
+        justify-self: flex-start;
+        padding-bottom: 0;
+        max-width: 100%;
+        overflow: hidden;
+        overflow-x: auto;
+
+        &::-webkit-scrollbar {
+          height: 0;
+        }
+
+        .nav__list {
+          gap: 30px;
+        }
+      }
+    }
+
+    .form-top {
+      grid-row: 4/span 1;
+    }
+
+    .userBasket {
+      grid-row: 2/span 1;
+    }
+  }
+
+
+
+
+  .hero {
+    margin-bottom: 32px;
+    padding: 30px 0;
+
+    &__container {
+      &-wrap {
+        position: relative;
+
+        .title2-banner {
+          margin-bottom: 0;
+          padding-left: 18px;
+          width: 85%;
+          min-height: 210px - (30px * 2);
+          font-size: 20px;
+          line-height: 27px;
+        }
+
+        .btn {
+          position: absolute;
+          top: 100% + 41%;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+  .banner {
+    margin-bottom: 32px;
+    padding: 30px 0;
+    @include image-set('../../img/banner-mob');
+    background-position: center;
+
+    &__container {
+      margin-left: 0;
+
+      &-wrap {
+        position: relative;
+
+
+        .title2-banner {
+          margin: 0;
+          width: 65%;
+          line-height: 10px;
+          min-height: 210px - (30px * 2);
+
+          &__top {
+            font-size: 24px;
+            line-height: 29px;
+          }
+
+          &__bottom {
+            font-size: 18px;
+            line-height: 20px;
+          }
+        }
+
+        .btn {
+          position: absolute;
+          top: 100% + 41%;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+  .footer {
+    .foot {
+      &__logoSoc {
+        @include flexC-x-center;
+        gap: 24px;
+
+        .soc {
+          padding-right: 0;
+        }
+      }
+
+      &__nav {
+        .nav__head {
+          display: grid;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 16px;
+          row-gap: 24px;
+          grid-template-areas:
+            'one one one two two two'
+            'three three three four four four';
+
+          &-item {
+            &:nth-child(1) {
+              grid-area: one;
+              grid-row: 1/span 1;
+            }
+
+            &:nth-child(2) {
+              grid-area: two;
+              grid-row: 1/span 1;
+            }
+
+            &:nth-child(3) {
+              grid-area: three;
+              grid-row: 2/span 1;
+            }
+
+            &:nth-child(4) {
+              grid-area: four;
+              grid-row: 2/span 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
