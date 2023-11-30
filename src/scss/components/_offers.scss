@@ -1,0 +1,57 @@
+.offers {
+  padding: 70px 0;
+
+  .discount {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    grid-template-areas:
+      'o1 o2 o2 o3';
+
+
+    .disc-card {
+      &.card1 {
+        grid-area: o1;
+
+        &::after {
+          content: '-9 000';
+        }
+
+        .price {
+          &::after {
+            content: '24 000 руб';
+          }
+        }
+
+      }
+
+      &.card2 {
+        grid-area: o2;
+
+        &::after {
+          content: '-10 000';
+        }
+
+        .price {
+          &::after {
+            content: '32 990 руб';
+          }
+        }
+      }
+
+      &.card3 {
+        grid-area: o3;
+
+        &::after {
+          content: '-600';
+        }
+
+        .price {
+          &::after {
+            content: '1 890 руб';
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.categ {
+  padding: 70px 0;
+
+  .cat {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 511px 405px;
+    grid-auto-rows: 405px;
+    gap: 32px;
+    grid-template-areas:
+      'c1 c1 c1 c2 c2 c2'
+      'c3 c3 c4 c4 c5 c5';
+
+    .cat-card {
+      background: no-repeat left 121px / 85%;
+    }
+
+    .card1 {
+      grid-area: c1;
+      background-image: url('../../img/cat1.png');
+    }
+
+    .card2 {
+      grid-area: c2;
+      background-image: url('../../img/cat2.png');
+    }
+
+    .card3 {
+      grid-area: c3;
+      background-image: url('../../img/cat3.png');
+      background-size: 77%;
+    }
+
+    .card4 {
+      grid-area: c4;
+      background-image: url('../../img/cat4.png');
+      background-size: 80%;
+    }
+
+    .card5 {
+      grid-area: c5;
+      background-image: url('../../img/cat5.png');
+      background-size: 60%;
+    }
+  }
+}

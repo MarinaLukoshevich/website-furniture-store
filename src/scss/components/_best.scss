@@ -1,0 +1,54 @@
+.best {
+  padding-bottom: 70px;
+
+  .rating {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    grid-template-areas:
+      'b1 b2 b3 b4';
+
+
+    .card1 {
+      grid-area: b1;
+
+      &::after {
+        content: '5,0';
+      }
+    }
+
+    .card2 {
+      grid-area: b2;
+
+      &::after {
+        content: '4,9';
+      }
+    }
+
+    .card3 {
+      grid-area: b3;
+    }
+
+    .card4 {
+      grid-area: b4;
+    }
+
+
+    .card3,
+    .card4,
+    .card5,
+    .card6,
+    .card7 {
+      &::after {
+        content: '4,8';
+      }
+    }
+
+    .card8,
+    .card9 {
+      &::after {
+        content: '4,7';
+      }
+    }
+  }
+}

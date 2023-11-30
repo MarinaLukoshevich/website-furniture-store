@@ -2,6 +2,7 @@
 
 
 @include tablet {
+
   .header {
     &__container {
       grid-template-columns: repeat(9, 1fr);
@@ -63,6 +64,47 @@
 
 
 
+  .offers {
+    .discount {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'o1 o2 o3';
+
+      .disc-card {
+        &.card2 {
+          gap: 48px;
+
+          .picture {
+            width: 254px;
+            margin-left: -9px;
+          }
+
+          .disc-card__wrap {
+            .draw-img {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .best {
+    .rating {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'b1 b2 b3'
+        'b4 b5 b6';
+
+      .card7,
+      .card8 {
+        display: none
+      }
+    }
+  }
+
 
 
 
@@ -75,6 +117,74 @@
       }
     }
   }
+
+
+
+
+  .categ {
+    .cat {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 511px);
+      grid-auto-rows: 511px;
+      grid-template-areas:
+        'c1 c1 c3'
+        'c4 c2 c5';
+
+      .cat-card {
+        background-position: left 127px;
+      }
+
+      .card1 {
+        background-position: left 121px;
+      }
+
+      .card2 {
+        background-image: url('../../img/cat2-tab.png');
+      }
+
+      .card3 {
+        background-image: url('../../img/cat3-tab.png');
+        background-size: 100%;
+      }
+
+      .card4 {
+        background-image: url('../../img/cat4-tab.png');
+      }
+
+      .card5 {
+        background-image: url('../../img/cat5-tab.png');
+        background-size: 90%;
+      }
+    }
+  }
+
+
+
+
+
+
+  .useful {
+    .useful-list {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'u1 u2 u3';
+
+      .card3 {
+        display: flex;
+      }
+
+      .useful-card {
+        padding-top: 232px;
+
+        .text {
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+
 
 
 
@@ -93,6 +203,13 @@
   }
 
 }
+
+
+
+
+
+
+
 
 
 
@@ -145,14 +262,43 @@
 
 
   .hero {
-    background: $grey-l no-repeat center / cover;
-    @include image-set('../../img/hero-tabSm');
+    background: $grey-l url('../../img/hero-tabSm.jpg') no-repeat center / cover;
     padding: 80px 0;
 
     &__container {
       .title2-banner {
         width: 90%;
       }
+    }
+  }
+
+
+
+  .offers {
+    .discount {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'o1 o2';
+
+      .disc-card {
+        &.card3 {
+          display: none;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+  .best {
+    .rating {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'b1 b2'
+        'b3 b4';
     }
   }
 
@@ -172,6 +318,39 @@
       }
     }
   }
+
+
+
+
+
+  .categ {
+    .cat {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'c1 c1'
+        'c3 c2'
+        'c4 c5';
+    }
+  }
+
+
+
+
+
+  .useful {
+    .useful-list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:
+        'u1 u2';
+
+      .card3 {
+        display: none;
+      }
+    }
+  }
+
+
+
 
 
 
@@ -203,6 +382,13 @@
   }
 
 }
+
+
+
+
+
+
+
 
 
 
@@ -296,7 +482,7 @@
 
 
   .hero {
-    margin-bottom: 32px;
+    margin-bottom: 32px + 60px;
     padding: 30px 0;
 
     &__container {
@@ -324,10 +510,64 @@
 
 
 
+  .offers {
+    .discount {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'o1'
+        'o2'
+        'o3';
+
+      .disc-card {
+        &.card3 {
+          display: block;
+        }
+      }
+    }
+  }
+
+
+
+
+  .best {
+    .rating {
+      gap: 16px;
+
+      .best-card {
+        padding: 16px;
+        min-height: 278px;
+
+        &::after {
+          top: 16px;
+          left: 16px;
+          font-size: 12px;
+          line-height: 15.5px;
+        }
+
+        &__wrap-text {
+          gap: 16px;
+
+          .title3 {
+            font-size: 16px;
+            line-height: 21px;
+          }
+
+          .btn-stroke {
+            padding: 12px 25px;
+          }
+        }
+
+      }
+    }
+  }
+
+
+
+
 
 
   .banner {
-    margin-bottom: 32px;
+    margin-bottom: 32px + 60px;
     padding: 30px 0;
     @include image-set('../../img/banner-mob');
     background-position: center;
@@ -361,6 +601,118 @@
           top: 100% + 41%;
           width: 100%;
         }
+      }
+    }
+  }
+
+
+
+
+
+  .categ {
+    .cat {
+      grid-template-rows: 332px 206px;
+      grid-auto-rows: 206px;
+
+      .cat-card {
+        background-position: left bottom 16px;
+        background-size: 100%;
+        padding: 16px;
+        gap: 4px;
+
+        .list {
+          flex-direction: column;
+          gap: 4px;
+          font-size: 10px;
+          line-height: 10px;
+        }
+
+        .card-wrap {
+          position: relative;
+          flex-direction: row;
+          align-items: flex-end;
+          gap: 5px;
+          height: max-content;
+
+
+          .title3 {
+            font-size: 16px;
+            line-height: 21px;
+          }
+
+          .to-link {
+            @include clickZone-0;
+            margin-top: 0;
+
+            &__text {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .card1 {
+        gap: 14px;
+        background-position: right -10px bottom 16px;
+        background-size: 130%;
+
+        .list {
+          flex-direction: row;
+          gap: 20px;
+          font-size: 14px;
+          line-height: 14px;
+        }
+
+        .title3 {
+          font-size: 24px;
+          line-height: 32px;
+        }
+      }
+
+      .card2 {
+        background-image: url('../../img/cat2.png');
+        background-position: left -20px bottom 16px;
+        background-size: 130%;
+      }
+
+      .card3 {
+        background-image: url('../../img/cat3.png');
+        background-size: 115%;
+      }
+
+      .card4 {
+        background-image: url('../../img/cat4.png');
+        background-size: 105%;
+      }
+
+      .card5 {
+        background-image: url('../../img/cat5.png');
+      }
+    }
+  }
+
+
+
+
+  .useful {
+    .useful-list {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'u1'
+        'u2'
+        'u3'
+        'u4'
+        'u5'
+      ;
+
+      .useful-card {
+        min-height: 254px + 202px;
+      }
+
+      .card3,
+      .card4,
+      .card5 {
+        display: flex;
       }
     }
   }

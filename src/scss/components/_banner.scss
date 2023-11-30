@@ -1,6 +1,5 @@
 .banner {
-  background: $grey-l no-repeat center / cover;
-  @include image-set('../../img/banner-desk');
+  background: $grey-l url('../../img/banner.jpg') no-repeat center / cover;
   padding: 150px 0;
 
   &__container {

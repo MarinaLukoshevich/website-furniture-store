@@ -1,6 +1,5 @@
 .hero {
-  background: $grey-l no-repeat bottom / cover;
-  @include image-set('../../img/hero-desk');
+  background: $grey-l url('../../img/hero.jpg') no-repeat bottom / cover;
   padding: 80px 0;
 
   &__container {

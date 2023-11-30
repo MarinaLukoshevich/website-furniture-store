@@ -53,17 +53,133 @@
 
 
   <!-- INPUT -->
+  <form class="form form-top" action="https://jsonplaceholder.typicode.com/posts" method="post">
+    <svg class="search-svg" width="20px" height="20px" viewbox="0 0 20 20">
+      <use xlink:href="img/sprite.svg#search"></use>
+    </svg>
+    <input type="text" name="search" class="input-reset input input-top" placeholder="Я хочу купить...">
+    <button class="btn-reset" aria-label="Искать по сайту">
+      @include('components/arrow.html')
+    </button>
+  </form>
+
   <form class="form form-bottom" action="https://jsonplaceholder.typicode.com/posts" method="post">
     <input type="text" name="search" class="input-reset input input-bottom" placeholder="Как вас зовут?">
     <button class="btn-reset btn btn-bg">Отправить</button>
   </form>
 
-
   <input type="text" class="input-reset input input-cost" placeholder="2000">
 
 
-</div>
 
+
+  <!-- CARD -->
+  <div class="disc-card">
+    <picture class="picture">
+      <source srcset="../img/offer1.webp" type="image/webp">
+      <img loading="lazy" src="../img/offer1.png" alt="Специальное предложение">
+    </picture>
+
+    <div class="disc-card__wrap-text">
+      <h3 class="title3">
+        Кресло велюровое “X-24”
+      </h3>
+      <span class="price">
+        15 990 руб
+      </span>
+      <button class="btn-reset btn btn-stroke">
+        Купить
+      </button>
+    </div>
+  </div>
+
+  <div class="disc-card card-draw">
+    <picture class="picture">
+      <source srcset="../img/offer1.webp" type="image/webp">
+      <img loading="lazy" src="../img/offer1.png" alt="Специальное предложение">
+    </picture>
+
+    <div class="disc-card__wrap">
+      <div class="disc-card__wrap-text">
+        <h3 class="title3">
+          Кресло велюровое “X-24”
+        </h3>
+        <span class="price">
+          15 990 руб
+        </span>
+        <button class="btn-reset btn btn-stroke">
+          Купить
+        </button>
+      </div>
+
+      <img loading="lazy" src="../img/draw.svg" class="draw" width="230" height="107" alt="Чертёж">
+    </div>
+  </div>
+
+
+
+  <div class="best-card">
+    <picture class="picture">
+      <source srcset="../img/best1.webp" type="image/webp">
+      <img loading="lazy" src="../img/best1.png" alt="Продукт высокого рейтинга">
+    </picture>
+
+    <div class="best-card__wrap-text">
+      <h3 class="title3">
+        Диван кожаный “R-94”
+      </h3>
+      <span class="price">
+        94 990 руб
+      </span>
+      <button class="btn-reset btn btn-stroke">
+        Купить
+      </button>
+    </div>
+  </div>
+
+  <div class="cat-card">
+    <ul class="list list-reset">
+      <li class="list-item">
+        <a href="#" class="sec-link">
+          Прямые
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="#" class="sec-link">
+          Угловые
+        </a>
+      </li>
+      <li class="list-item">
+        <a href="#" class="sec-link">
+          Модульные
+        </a>
+      </li>
+    </ul>
+
+    <div class="card-wrap">
+      <h3 class="title3">
+        Диваны
+      </h3>
+      <a href="#" class="to-link">
+        <span class="to-link__text">В каталог</span>
+        @include('components/arrow.html')
+      </a>
+    </div>
+  </div>
+
+  <div class="useful-card">
+    <p class="text">
+      И нет сомнений, что сделанные на базе интернет-аналитики выводы представляют собой не что иное?
+    </p>
+    <button class="btn-reset btn btn-stroke">
+      Читать
+    </button>
+  </div>
+
+
+
+
+</div>
 <br>
 <br>
 <br>

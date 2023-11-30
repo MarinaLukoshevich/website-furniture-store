@@ -48,24 +48,65 @@
 
 
 
+
+
+
+
+
+
+@mixin flex-y-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin flex-xy-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-space {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-end-space {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+
+@mixin flexC {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@mixin flexC-x-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+
+
 @mixin image-set($pathToImage) {
   background-image: url("#{$pathToImage}.jpg");
-  /* stylelint-disable-next-line declaration-block-no-duplicate-properties */
-  background-image: image-set(
-    /* stylelint-disable-next-line function-comma-newline-after */
-    "#{$pathToImage}.webp" type("image/webp"),
+  background-image: image-set("#{$pathToImage}.webp" type("image/webp"),
     "#{$pathToImage}.jpg" type("image/jpg"));
 }
 
-// @mixin bg-cover {
-//   background-color: $grey-l;
-//   background-position: center;
-//   background-size: cover;
-//   background-repeat: no-repeat;
-// }
 
-
-@mixin backColor() {
+@mixin bgColor() {
   &::after {
     content: '';
     position: absolute;
@@ -78,6 +119,17 @@
   }
 }
 
+
+@mixin clickZone-0() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
 @mixin clickZone-3() {
   &::after {
@@ -124,34 +176,46 @@
 }
 
 
-@mixin flex-y-center {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-@mixin flex-xy-center {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin flex-center-space {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+@mixin discount() {
+  &::after {
+    content: '';
+    background: url('../../img/discount.svg') no-repeat center / cover;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    height: 34px;
+    width: 92px;
+    padding-right: 10px;
+    @include  flex-xy-center;
+    font: 700 14px / 19px $font-f;
+    color: $white;
+  }
 }
 
 
-@mixin flexC {
-  display: flex;
-  flex-direction: column;
+@mixin priceInitial() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 130%;
+    width: 120%;
+    font: 400 16px / 21px $font-f;
+    color: $grey;
+    text-decoration: line-through;
+  }
 }
 
-@mixin flexC-x-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+@mixin starReting() {
+  &::after {
+    content: '';
+    background: url('../../img/star.svg') no-repeat left center / 15px 15px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding-left: 22.5px;
+    font: 400 16px / 20px $font-f;
+    color: $orange;
+  }
 }

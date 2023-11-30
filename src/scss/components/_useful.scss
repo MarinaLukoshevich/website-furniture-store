@@ -1,0 +1,42 @@
+.useful {
+  .useful-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    grid-template-areas:
+      'u1 u2';
+
+
+    .card1 {
+      grid-area: u1;
+      background-image: url('../../img/useful1.jpg');
+    }
+
+    .card2 {
+      grid-area: u2;
+      background-image: url('../../img/useful2.jpg');
+    }
+
+    .card3 {
+      grid-area: u3;
+      background-image: url('../../img/useful3.jpg');
+    }
+
+    .card4 {
+      grid-area: u4;
+      background-image: url('../../img/useful4.jpg');
+    }
+
+    .card5 {
+      grid-area: u5;
+      background-image: url('../../img/useful5.jpg');
+    }
+
+    .card3,
+    .card4,
+    .card5 {
+      display: none;
+    }
+
+  }
+}
