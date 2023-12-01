@@ -1,5 +1,44 @@
-<section class="feedback">
-  <div class="container">
+<section class="fb">
+  <div class="container fb__container">
+
+    <div class="content">
+      <h2 class="title2">Оставить заявку</h2>
+      <p class="descr">
+        Безусловно, новая модель организационной деятельности в значительной степени обусловливает важность
+        распределения
+        внутренних резервов и ресурсов.
+      </p>
+
+      <form class="fb__form" action="https://jsonplaceholder.typicode.com/posts" method="post">
+        <div class="fb__form-wrap">
+          <input class="input input-reset input-name" type="text" name="name" placeholder="Как вас зовут?">
+        </div>
+        <div class="fb__form-wrap">
+          <input class="input input-reset input-phone" type="tel" name="tel" placeholder="Ваш телефон">
+        </div>
+        <div class="fb__form-wrap">
+          <input class="input input-reset input-email" type="email" name="email" placeholder="Ваш e-mail">
+        </div>
+
+        <label class="checkbox">
+          <input class="checkbox__input" type="checkbox">
+          <span class="checkbox__span">
+            Принимаю
+            <a href="#" class="checkbox__span-link">
+              пользовательское соглашение
+            </a>
+          </span>
+        </label>
+
+        <button class="btn btn-bg btn-reset" type="submit">Отправить</button>
+      </form>
+    </div>
+
+    <picture class="picture">
+      <source srcset="../img/feedback-tabSm.webp" type="image/webp" media="(max-width: 768px)">
+      <source srcset="../img/feedback.webp" type="image/webp">
+      <img loading="lazy" src="../img/feedback.png" alt="Удобство и комфорт">
+    </picture>
 
   </div>
 </section>
