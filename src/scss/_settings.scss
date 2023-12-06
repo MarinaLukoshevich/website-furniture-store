@@ -99,7 +99,6 @@ h6 {
 .title2 {
   font: 400 32px / 32px $font-f;
   margin-bottom: 26px;
-  // color: $black;
 }
 
 .title2-banner {
@@ -107,9 +106,17 @@ h6 {
   color: $grey;
 }
 
+.title2-banner-new {
+  font: 900 60px / 72px "PlayfairDisplay-Black";
+  color: $gold;
+}
+
 .title3 {
   font: 400 24px / 31px $font-f;
-  // color: $black;
+}
+
+.title4 {
+  font: 600 16px / 16px $font-f;
 }
 
 

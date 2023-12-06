@@ -24,11 +24,8 @@
         gap: 112px;
 
         &-item {
-          &-title {
-            display: block;
+          .title4 {
             margin-bottom: 10px;
-            font-size: 16px;
-            line-height: 16px;
           }
 
           .list {

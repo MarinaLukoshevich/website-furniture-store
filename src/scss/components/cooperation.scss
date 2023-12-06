@@ -9,10 +9,6 @@
     color: $grey-s;
   }
 
-  .route {
-    margin-bottom: 32px;
-  }
-
   &__content {
     @include flexC;
     gap: 32px;

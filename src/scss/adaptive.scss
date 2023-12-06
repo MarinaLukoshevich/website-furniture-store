@@ -112,7 +112,7 @@
     @include image-set('../../img/banner-tab');
 
     &__container {
-      .title2-banner {
+      .text-wrap {
         width: 55%;
       }
     }
@@ -206,6 +206,88 @@
 
 
 
+  .catalog {
+    &__content {
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      grid-template-areas:
+        'c2'
+        'c3'
+        'c4';
+
+      .title-filter {
+        display: none;
+      }
+
+      &-left {
+        grid-row: 2/span 1;
+
+        .filter {
+          flex-direction: row;
+          gap: 32px;
+
+          &__item {
+            min-width: 145px;
+          }
+        }
+
+        .catalog__banner {
+          display: none;
+        }
+      }
+
+      &-right {
+        grid-row: 3/span 1;
+
+        .rating {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+
+
+
+
+  .product {
+    &__content {
+      .product-card {
+        row-gap: 82px;
+
+        .descrip {
+          &__draw {
+            gap: 28px;
+
+            img {
+              max-width: 243px;
+              max-height: 110px
+            }
+          }
+        }
+
+        .character {
+          &-list {
+            .item {
+              &__main {
+                flex-basis: 44.5%;
+              }
+            }
+          }
+        }
+      }
+
+      &-bottom {
+        .rating {
+          grid-template-columns: repeat(3, 1fr);
+
+          .card7 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 
 }
 
@@ -319,7 +401,7 @@
     &__container {
       margin-left: -36px;
 
-      .title2-banner {
+      .text-wrap {
         width: 84%;
       }
     }
@@ -398,6 +480,78 @@
 
 
 
+  .catalog {
+    &__content {
+      &-right {
+        .rating {
+          grid-template-columns: repeat(2, 1fr);
+
+          .card7,
+          .card8,
+          .card9 {
+            display: none;
+          }
+        }
+
+        .catalog__pagin {
+          .btn {
+            &:nth-child(3) {
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+  .product {
+    &__content {
+      .product-card {
+        padding: 0 0 32px 0;
+        row-gap: 32px;
+        grid-template-columns: 1fr;
+
+        .model {
+          min-height: 350px;
+          align-self: center; //не работает
+        }
+
+        .descrip {
+          max-width: 82.5%;
+        }
+
+        .character {
+          &-list {
+            .item {
+              &__main {
+                flex-basis: 63%;
+              }
+            }
+          }
+        }
+      }
+
+      &-bottom {
+        .rating {
+          grid-template-columns: repeat(2, 1fr);
+
+          .card12 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
 
 
   .cooperat {
@@ -410,7 +564,6 @@
       }
     }
   }
-
 }
 
 
@@ -427,6 +580,59 @@
 
 
 @include mob {
+
+  // BTN-WRAP in banner
+  .btn-fromMob {
+    display: block;
+    position: absolute;
+    bottom: -32px - 60px;
+    left: 0;
+    right: 0;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  // catalog-card & best-card
+  .rating {
+    .catalog-card {
+      padding: 16px;
+      min-height: 278px;
+
+      &::after {
+        top: 16px;
+        left: 16px;
+        font-size: 12px;
+        line-height: 15.5px;
+      }
+
+      &__wrap-text {
+        gap: 16px;
+
+        .title3 {
+          font-size: 16px;
+          line-height: 21px;
+        }
+
+        .btn-stroke {
+          padding: 12px 25px;
+        }
+      }
+
+    }
+  }
+
+  .route {
+    display: none;
+  }
+
+
+
+
+
+
+  //SECTION
   .header {
     &__container {
       gap: 16px;
@@ -514,25 +720,20 @@
   .hero {
     margin-bottom: 32px + 60px;
     padding: 30px 0;
+    position: relative;
 
     &__container {
-      &-wrap {
-        position: relative;
+      .title2-banner {
+        margin-bottom: 0;
+        padding-left: 18px;
+        width: 85%;
+        min-height: 210px - (30px * 2);
+        font-size: 20px;
+        line-height: 27px;
+      }
 
-        .title2-banner {
-          margin-bottom: 0;
-          padding-left: 18px;
-          width: 85%;
-          min-height: 210px - (30px * 2);
-          font-size: 20px;
-          line-height: 27px;
-        }
-
-        .btn {
-          position: absolute;
-          top: 100% + 41%;
-          width: 100%;
-        }
+      .btn-toMob {
+        display: none;
       }
     }
   }
@@ -562,35 +763,8 @@
   .best {
     .rating {
       gap: 16px;
-
-      .best-card {
-        padding: 16px;
-        min-height: 278px;
-
-        &::after {
-          top: 16px;
-          left: 16px;
-          font-size: 12px;
-          line-height: 15.5px;
-        }
-
-        &__wrap-text {
-          gap: 16px;
-
-          .title3 {
-            font-size: 16px;
-            line-height: 21px;
-          }
-
-          .btn-stroke {
-            padding: 12px 25px;
-          }
-        }
-
-      }
     }
   }
-
 
 
 
@@ -601,41 +775,32 @@
     padding: 30px 0;
     @include image-set('../../img/banner-mob');
     background-position: center;
+    position: relative;
+    min-height: 210px;
 
     &__container {
       margin-left: 0;
 
-      &-wrap {
-        position: relative;
+      .text-wrap {
+        margin: 0;
+        width: 65%;
 
-
-        .title2-banner {
-          margin: 0;
-          width: 65%;
-          line-height: 10px;
-          min-height: 210px - (30px * 2);
-
-          &__top {
-            font-size: 24px;
-            line-height: 29px;
-          }
-
-          &__bottom {
-            font-size: 18px;
-            line-height: 20px;
-          }
+        .title2-banner-new {
+          font-size: 24px;
+          line-height: 29px;
         }
 
-        .btn {
-          position: absolute;
-          top: 100% + 41%;
-          width: 100%;
+        &__descr {
+          font-size: 18px;
+          line-height: 20px;
         }
+      }
+
+      .btn-toMob {
+        display: none;
       }
     }
   }
-
-
 
 
 
@@ -830,16 +995,98 @@
 
 
 
+  .catalog {
+    &__content {
+      &-left {
+        .filter {
+          gap: 16px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-areas:
+            'fil1 fil2'
+            'fil3 fil3';
+
+          &__item {
+            &:nth-child(1) {
+              grid-area: fil1;
+            }
+
+            &:nth-child(2) {
+              grid-area: fil2;
+            }
+
+            &:nth-child(3) {
+              grid-area: fil3;
+              grid-row: 2/span 1;
+            }
+          }
+        }
+      }
+
+      &-right {
+        .rating {
+          padding-top: 8px;
+          gap: 16px;
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+  .product {
+    &__content {
+      .product-card {
+        padding: 0 0 32px 0;
+        row-gap: 32px;
+        grid-template-columns: 1fr;
+
+        .model {
+          min-height: 350px;
+          align-self: center;
+        }
+
+        .descrip {
+          max-width: 82.5%;
+        }
+
+        .character {
+          &-list {
+            .item {
+              &__main {
+                flex-basis: 63%;
+              }
+            }
+          }
+        }
+      }
+
+      &-bottom {
+        .rating {
+          grid-template-columns: repeat(2, 1fr);
+
+          .card12 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
 
 
   .cooperat {
     .descr {
       font-size: 14px;
       line-height: 25px;
-    }
-
-    .route {
-     display: none;
     }
 
     &__content {
@@ -867,5 +1114,4 @@
       }
     }
   }
-
 }
