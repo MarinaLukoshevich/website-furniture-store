@@ -9,27 +9,27 @@
 
     .card1 {
       grid-area: u1;
-      background-image: url('../../img/useful1.jpg');
+       @include image-set('../../img/useful1');
     }
 
     .card2 {
       grid-area: u2;
-      background-image: url('../../img/useful2.jpg');
+       @include image-set('../../img/useful2');
     }
 
     .card3 {
       grid-area: u3;
-      background-image: url('../../img/useful3.jpg');
+       @include image-set('../../img/useful3');
     }
 
     .card4 {
       grid-area: u4;
-      background-image: url('../../img/useful4.jpg');
+       @include image-set('../../img/useful4');
     }
 
     .card5 {
       grid-area: u5;
-      background-image: url('../../img/useful5.jpg');
+       @include image-set('../../img/useful5');
     }
 
     .card3,

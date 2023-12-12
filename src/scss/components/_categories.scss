@@ -12,35 +12,35 @@
       'c3 c3 c4 c4 c5 c5';
 
     .cat-card {
-      background: no-repeat left 121px / 85%;
+      background: no-repeat left 121px / 82%;
     }
 
     .card1 {
       grid-area: c1;
-      background-image: url('../../img/cat1.png');
+      @include image-set('../../img/cat1');
     }
 
     .card2 {
       grid-area: c2;
-      background-image: url('../../img/cat2.png');
+       @include image-set('../../img/cat2');
     }
 
     .card3 {
       grid-area: c3;
-      background-image: url('../../img/cat3.png');
-      background-size: 77%;
+       @include image-set('../../img/cat3');
+      background-size: 75%;
     }
 
     .card4 {
       grid-area: c4;
-      background-image: url('../../img/cat4.png');
-      background-size: 80%;
+       @include image-set('../../img/cat4');
+      background-size: 82%;
     }
 
     .card5 {
       grid-area: c5;
-      background-image: url('../../img/cat5.png');
-      background-size: 60%;
+       @include image-set('../../img/cat5');
+      background-size: 65%;
     }
   }
 }

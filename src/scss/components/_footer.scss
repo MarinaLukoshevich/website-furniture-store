@@ -3,6 +3,7 @@
     position: relative;
     padding: 24px 0;
     @include bgColor;
+
     &::after {
       background-color: $grey-md;
     }
@@ -15,16 +16,21 @@
     &__logoSoc {
       @include flexC;
       align-items: flex-start;
-      gap: 31px;
+      gap: 28px;
     }
 
     &__nav {
+      flex-basis: 66%;
+
+
       .nav__head {
         display: flex;
+        justify-content: space-between;
         gap: 112px;
 
         &-item {
           .title4 {
+            display: block;
             margin-bottom: 10px;
           }
 

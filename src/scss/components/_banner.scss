@@ -1,16 +1,22 @@
 .banner {
-  background: $grey-l url('../../img/banner.jpg') no-repeat center / cover;
+  background: $grey-l no-repeat center / cover;
+  @include image-set('../../img/banner');
   padding: 150px 0;
 
   &__container {
     .text-wrap {
       width: 39.5%;
       margin-bottom: 49px;
+      padding-top: 5px;
 
       &__descr {
         font: 400 48px / 57px $font-f;
         color: $white;
       }
+    }
+
+    .btn {
+      padding: 22px 35px;
     }
   }
 }

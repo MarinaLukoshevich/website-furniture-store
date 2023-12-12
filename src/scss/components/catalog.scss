@@ -6,22 +6,20 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     row-gap: 12px;
     grid-template-areas:
-      'c1 c2'
-      'c3 c4';
+      'c1 c2 c2 c2'
+      'c3 c4 c4 c4';
 
     .title-filter {
       grid-area: c1;
-      font-size: 18px;
-      line-height: 23.5px;
+      font: 400 18px / 23.5px $font-f;
     }
 
-    .title2 {
+    .title-catalog {
       grid-area: c2;
-      margin-bottom: 0;
     }
 
 
@@ -44,13 +42,13 @@
 
           ul {
             @include flexC;
-            gap: 9px;
+            gap: 11px;
           }
 
 
           &:last-child {
-            .filter__item-title {
-              margin-bottom: 4px;
+            .title4 {
+              margin-bottom: 5px;
             }
 
             ul {
@@ -67,7 +65,7 @@
 
       .catalog__banner {
         margin-top: auto;
-        margin-bottom: 32px + 32px;
+        margin-bottom: 32px + 34px;
         overflow: hidden;
         border-radius: $r-10;
 
@@ -83,7 +81,7 @@
             margin-bottom: 12px;
             max-width: 200px;
 
-            .title2-banner-new {
+            .title2-banner {
               font-size: 24px;
               line-height: 32px;
             }
@@ -132,48 +130,3 @@
 }
 
 
-
-
-.rating {
-  .card1 {
-    &::after {
-      content: '5,0';
-    }
-  }
-
-  .card2 {
-    &::after {
-      content: '4,9';
-    }
-  }
-
-  .card3,
-  .card4,
-  .card5,
-  .card6,
-  .card7 {
-    &::after {
-      content: '4,8';
-    }
-  }
-
-  .card8,
-  .card9 {
-    &::after {
-      content: '4,7';
-    }
-  }
-
-  .card11 {
-    &::after {
-      content: '4,6';
-    }
-  }
-
-  .card10,
-  .card12 {
-    &::after {
-      content: '4,5';
-    }
-  }
-}

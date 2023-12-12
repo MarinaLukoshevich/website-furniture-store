@@ -2,7 +2,6 @@
 @import "../mixins.scss";
 @import "../fonts.scss";
 
-// После удаления ui.html - удалить этот селектор
 .ui-kit {
   display: flex;
   flex-direction: column;
@@ -10,9 +9,6 @@
   gap: 10px;
   background-color: rgb(205, 255, 255);
 }
-
-
-
 
 
 
@@ -219,7 +215,7 @@
   }
 }
 
-// BTN-WRAP in banner
+// BTN-WRAP in hero & banner
 .btn-fromMob {
   display: none;
 }
@@ -491,7 +487,7 @@
 .phone-link {
   @include flex-y-center;
   color: $orange;
-  background-color: none;
+  background-color: transparent;
   transition: $tr;
   transition-property: background-color, color;
 
@@ -519,7 +515,7 @@
 
   &:active {
     color: $orange-s;
-    background-color: none;
+    background-color: transparent;
 
     .phone-svg {
       fill: $orange-s;
@@ -527,6 +523,7 @@
   }
 }
 
+// link in section product
 .add-to-basket {
   font: 400 16px / 21px $font-f;
   color: $primary;
@@ -565,7 +562,7 @@
 
 .userBasket {
   @include flex-y-center;
-  gap: 32px;
+  gap: 30px;
 
   &__item {
     .userBasket-link {
@@ -626,8 +623,9 @@
 
 .route {
   @include flex-y-center;
-  gap: 3px;
+  gap: 6px;
   margin-bottom: 32px;
+  margin-top: -9px;
 
   &__item {
     .slash {
@@ -641,15 +639,47 @@
 
 
 // CARD
+.disc-card,
+.catalog-card,
+.cat-card {
+  position: relative;
+  @include flexC;
+}
+
+.disc-card,
+.catalog-card {
+  justify-content: flex-end;
+  gap: 16px;
+  background-color: $grey-l;
+  border-radius: $r-10;
+
+  &::after {
+    content: '!';
+  }
+
+  .picture {
+    width: 100%;
+    @include flex-xy-center;
+  }
+}
 
 .disc-card {
   @include discount;
   min-height: 511px;
+  padding: 64px 20px 30px;
+
+  .picture {
+    height: 100%;
+    img {
+      max-height: 218px;
+    }
+  }
 
   &__wrap-text {
     @include flexC;
-    gap: 23px;
-    max-width: 225px;
+    gap: 21px;
+    max-width: 235px;
+    padding-left: 10px;
 
     .price {
       position: relative;
@@ -665,6 +695,7 @@
   }
 
   &.card-draw {
+    padding: 30px 20px;
     .disc-card__wrap {
       @include flex-end-space;
       width: 100%;
@@ -672,14 +703,15 @@
   }
 }
 
-
 .catalog-card {
   @include starReting;
   min-height: 420px;
+  padding: 30px 15px;
 
   &__wrap-text {
     @include flexC;
-    gap: 24px;
+    gap: 21px;
+    padding: 0 15px;
 
     .price {
       font: 400 16px / 21px $font-f;
@@ -692,6 +724,7 @@
   min-height: 200px;
   @include bgColor;
   gap: 14px;
+  padding: 30px;
   background: url('../../img/cat2.png') no-repeat left center / contain;
 
   &::after {
@@ -738,28 +771,157 @@
   }
 }
 
-
-.disc-card,
-.catalog-card {
-  justify-content: flex-end;
-  gap: 16px;
-  background-color: $grey-l;
-  border-radius: $r-10;
-
-  &::after {
-    content: '!';
-  }
+.product-card {
+  margin-bottom: 82px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  row-gap: 113px;
 
   .picture {
-    width: 100%;
-    @include flex-xy-center;
+    align-self: center;
+  }
+
+  .model {
+    position: relative;
+    @include starReting;
+    @include flexC;
+    gap: 21px;
+    padding-top: 21px;
+
+    &::after {
+      content: '!';
+      top: 0;
+      left: 0;
+    }
+
+    .titleDescr {
+      &__title3 {
+        margin-bottom: 5px;
+      }
+
+      .descr {
+        color: $grey;
+      }
+    }
+
+    .price {
+      font-size: 38px;
+      line-height: 47px;
+    }
+
+    .links {
+      @include flexC-x-center;
+      gap: 12px;
+
+      a {
+        text-align: center;
+
+        &.btn-bg {
+          padding: 18px 30px;
+        }
+      }
+    }
+
+  }
+
+  .descrip,
+  .character {
+    line-height: 25px;
+  }
+
+  .descrip {
+    @include flexC;
+    justify-content: space-between;
+    gap: 32px;
+
+    &__text {
+      .title4 {
+        margin-bottom: 8px;
+      }
+
+      p:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &__draw {
+      @include flex-y-center;
+      gap: 32px;
+
+      img {
+        min-width: 247px;
+      }
+    }
+  }
+
+  .character {
+    &-list {
+      .item {
+        @include flex-y-center;
+
+        &__main {
+          position: relative;
+          white-space: nowrap;
+          overflow: hidden;
+          flex-basis: 52.5%;
+          color: $grey;
+
+          &::after {
+            content: '. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .';
+            position: absolute;
+            bottom: 0;
+          }
+
+        }
+      }
+    }
   }
 }
 
-.disc-card,
-.catalog-card,
-.cat-card {
-  position: relative;
-  @include flexC;
-  padding: 30px;
+
+
+// automatic installation rating for 12 cards
+.rating {
+  .card1 {
+    &::after {
+      content: '5,0';
+    }
+  }
+
+  .card2 {
+    &::after {
+      content: '4,9';
+    }
+  }
+
+  .card3,
+  .card4,
+  .card5,
+  .card6,
+  .card7 {
+    &::after {
+      content: '4,8';
+    }
+  }
+
+  .card8,
+  .card9 {
+    &::after {
+      content: '4,7';
+    }
+  }
+
+  .card11 {
+    &::after {
+      content: '4,6';
+    }
+  }
+
+  .card10,
+  .card12 {
+    &::after {
+      content: '4,5';
+    }
+  }
 }

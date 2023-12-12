@@ -52,6 +52,48 @@
           }
         }
       }
+
+      &.card4 {
+        &::after {
+          content: '-300';
+        }
+
+        .price {
+          &::after {
+            content: '990 руб';
+          }
+        }
+      }
+
+      &.card5 {
+        &::after {
+          content: '-10 000';
+        }
+
+        .price {
+          &::after {
+            content: '32 990 руб';
+          }
+        }
+      }
+
+      &.card6 {
+        &::after {
+          content: '-700';
+        }
+
+        .price {
+          &::after {
+            content: '2 090 руб';
+          }
+        }
+      }
+
+      &.card4,
+      &.card5,
+      &.card6 {
+        display: none;
+      }
     }
   }
 }

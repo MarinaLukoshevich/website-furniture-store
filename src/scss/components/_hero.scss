@@ -1,11 +1,16 @@
 .hero {
-  background: $grey-l url('../../img/hero.jpg') no-repeat bottom / cover;
+  background: $grey-l no-repeat center / cover;
+  @include image-set('../../img/hero');
   padding: 80px 0;
 
   &__container {
-    .title2-banner {
+    .title2-hero {
       width: 39%;
       margin-bottom: 49px;
+    }
+
+    .btn {
+      padding: 22px 50px;
     }
   }
 }

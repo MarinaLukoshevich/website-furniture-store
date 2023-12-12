@@ -3,6 +3,50 @@
 
 @include tablet {
 
+  // UI
+  .product-card {
+    grid-template-columns: 54% 46%;
+    row-gap: 82px;
+    margin-bottom: 68px;
+
+    .descrip {
+      &__draw {
+        gap: 28px;
+
+        img {
+          max-width: 243px;
+          max-height: 110px
+        }
+      }
+    }
+
+    .character {
+      &-list {
+        .item {
+          &__main {
+            flex-basis: 43%;
+          }
+        }
+      }
+    }
+  }
+
+  .useful-card {
+    padding-top: 232px;
+    gap: 30px;
+
+    .text {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+
+
+
+
+
+  //SECTION
   .header {
     &__container {
       grid-template-columns: repeat(9, 1fr);
@@ -24,7 +68,6 @@
     }
 
     .nav {
-
       &.nav-sec {
         grid-row: 2/span 1;
         justify-self: flex-start;
@@ -34,7 +77,7 @@
         grid-row: 3/span 1;
 
         .nav__list {
-          gap: 40px;
+          gap: 42px;
         }
 
       }
@@ -47,16 +90,17 @@
 
     .userBasket {
       grid-row: 2/span 1;
+      margin-bottom: 0;
     }
   }
 
 
+
   .hero {
-    background-position: left bottom;
-    background-size: 137%;
+    @include image-set('../../img/hero-tab');
 
     &__container {
-      .title2-banner {
+      .title2-hero {
         width: 59%;
       }
     }
@@ -71,14 +115,9 @@
         'o1 o2 o3';
 
       .disc-card {
+        width: 100%;
+
         &.card2 {
-          gap: 48px;
-
-          .picture {
-            width: 254px;
-            margin-left: -9px;
-          }
-
           .disc-card__wrap {
             .draw-img {
               display: none;
@@ -107,7 +146,6 @@
 
 
 
-
   .banner {
     @include image-set('../../img/banner-tab');
 
@@ -117,7 +155,6 @@
       }
     }
   }
-
 
 
 
@@ -139,27 +176,26 @@
       }
 
       .card2 {
-        background-image: url('../../img/cat2-tab.png');
+        @include image-set('../../img/cat2-tab');
+        background-size: 88%;
       }
 
       .card3 {
-        background-image: url('../../img/cat3-tab.png');
+        @include image-set('../../img/cat3-tab');
         background-size: 100%;
       }
 
       .card4 {
-        background-image: url('../../img/cat4-tab.png');
+        @include image-set('../../img/cat4-tab');
+        background-size: 85%;
       }
 
       .card5 {
-        background-image: url('../../img/cat5-tab.png');
+        @include image-set('../../img/cat5-tab');
         background-size: 90%;
       }
     }
   }
-
-
-
 
 
 
@@ -172,37 +208,41 @@
       .card3 {
         display: flex;
       }
-
-      .useful-card {
-        padding-top: 232px;
-
-        .text {
-          font-size: 16px;
-          line-height: 22px;
-        }
-      }
     }
   }
 
 
+
+  .fb {
+    &__container {
+      .content {
+        flex-basis: 42%;
+      }
+
+      .picture {
+        flex-basis: 54%;
+      }
+    }
+  }
 
 
 
   .footer {
     .foot {
       &__wrap {
-        gap: 75px;
-      }
+        justify-content: flex-start;
+        gap: 32px;
 
-      &__nav {
-        .nav__head {
-          gap: 75px;
+        .nav {
+          flex-basis: 77%;
+
+          .nav__head {
+            gap: 75px;
+          }
         }
       }
     }
   }
-
-
 
 
 
@@ -248,34 +288,9 @@
 
 
 
-
-
   .product {
     &__content {
-      .product-card {
-        row-gap: 82px;
-
-        .descrip {
-          &__draw {
-            gap: 28px;
-
-            img {
-              max-width: 243px;
-              max-height: 110px
-            }
-          }
-        }
-
-        .character {
-          &-list {
-            .item {
-              &__main {
-                flex-basis: 44.5%;
-              }
-            }
-          }
-        }
-      }
+      padding-top: 4px;
 
       &-bottom {
         .rating {
@@ -288,7 +303,6 @@
       }
     }
   }
-
 }
 
 
@@ -300,12 +314,44 @@
 
 
 
-
-
-
-
-
 @include tabletSm {
+
+  // UI
+  .product-card {
+    margin-bottom: 32px;
+    row-gap: 32px;
+    grid-template-columns: 1fr;
+
+    .model {
+      padding: 70px 0 50px;
+
+      &::after {
+        top: 50px;
+      }
+    }
+
+    .descrip {
+      max-width: 82.5%;
+    }
+
+    .character {
+      &-list {
+        .item {
+          &__main {
+            flex-basis: 65%;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+
+  //SECTION
   .header {
     &__container {
       grid-template-columns: repeat(6, 1fr);
@@ -315,6 +361,11 @@
         'logo logo logo UB UB UB'
         'nM nM nM nM nM nM'
         'fT fT fT fT fT fT'
+    }
+
+    .logo {
+      margin-left: -5px;
+      padding-top: 35px;
     }
 
     .nav {
@@ -328,6 +379,10 @@
         grid-row: 4/span 1;
         padding-bottom: 34px;
 
+        .nav__list {
+          gap: 39px;
+        }
+
         .main-link {
           font-size: 14px;
           line-height: 19px;
@@ -338,6 +393,7 @@
     .form-top {
       grid-row: 5/span 1;
       max-width: 100%;
+      padding: 9px 29px;
     }
 
     .userBasket {
@@ -347,14 +403,13 @@
 
 
 
-
-
   .hero {
-    background: $grey-l url('../../img/hero-tabSm.jpg') no-repeat center / cover;
+    background: $grey-l no-repeat center / cover;
+    @include image-set('../../img/hero-tabSm');
     padding: 80px 0;
 
     &__container {
-      .title2-banner {
+      .title2-hero {
         width: 90%;
       }
     }
@@ -378,9 +433,6 @@
 
 
 
-
-
-
   .best {
     .rating {
       grid-template-columns: repeat(2, 1fr);
@@ -389,9 +441,6 @@
         'b3 b4';
     }
   }
-
-
-
 
 
 
@@ -409,8 +458,6 @@
 
 
 
-
-
   .categ {
     .cat {
       grid-template-columns: repeat(2, 1fr);
@@ -420,8 +467,6 @@
         'c4 c5';
     }
   }
-
-
 
 
 
@@ -439,17 +484,17 @@
 
 
 
-
-
   .fb {
-    .content {
-      width: 100%;
+    &__container {
+      .content {
+        flex-basis: 100%;
+      }
+
+      .picture {
+        flex-basis: 46%;
+      }
     }
   }
-
-
-
-
 
 
 
@@ -457,7 +502,7 @@
     .foot {
       &__wrap {
         @include flexC;
-        gap: 25px;
+        gap: 26px;
       }
 
       &__logoSoc {
@@ -469,14 +514,16 @@
         }
       }
 
-      &__nav {
+      .nav {
+        width: 100%;
+
         .nav__head {
+          justify-content: space-between;
           gap: 39px;
         }
       }
     }
   }
-
 
 
 
@@ -506,36 +553,9 @@
 
 
 
-
-
-
-
   .product {
     &__content {
-      .product-card {
-        padding: 0 0 32px 0;
-        row-gap: 32px;
-        grid-template-columns: 1fr;
-
-        .model {
-          min-height: 350px;
-          align-self: center; //не работает
-        }
-
-        .descrip {
-          max-width: 82.5%;
-        }
-
-        .character {
-          &-list {
-            .item {
-              &__main {
-                flex-basis: 63%;
-              }
-            }
-          }
-        }
-      }
+      padding-top: 0;
 
       &-bottom {
         .rating {
@@ -548,9 +568,6 @@
       }
     }
   }
-
-
-
 
 
 
@@ -575,12 +592,31 @@
 
 
 
-
-
-
-
 @include mob {
 
+  // SETTINGS
+  .title2 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .title2-hero {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .title2-banner {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  .title3 {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+
+  // UI
   // BTN-WRAP in banner
   .btn-fromMob {
     display: block;
@@ -594,32 +630,172 @@
     }
   }
 
-  // catalog-card & best-card
-  .rating {
-    .catalog-card {
-      padding: 16px;
-      min-height: 278px;
+
+  // offers-card
+  .disc-card {
+    &__wrap-text {
+      gap: 19px;
+
+      .title3 {
+        font-size: 24px;
+        line-height: 31px;
+      }
+    }
+  }
+
+  // best-card & catalog-card & product-card
+  .catalog-card {
+    padding: 32px 16px 16px;
+    min-height: 278px;
+    gap: 0;
+
+    &::after {
+      top: 18px;
+      left: 15px;
+      font-size: 12px;
+      line-height: 15.5px;
+      padding-left: 18px;
+      background-size: 13px 12px;
+    }
+
+    .picture {
+      height: 100%;
+      min-height: 76px;
+    }
+
+    &__wrap-text {
+      gap: 16px;
+      padding: 0;
+
+      .btn {
+        padding: 9px 23px;
+      }
+    }
+
+  }
+
+  // categories-card
+  .cat-card {
+    background-position: left bottom 16px;
+    background-size: 100%;
+    padding: 16px;
+    gap: 9px;
+
+    .list {
+      flex-direction: column;
+      gap: 4px;
+      font-size: 10px;
+      line-height: 10px;
+    }
+
+    .card-wrap {
+      position: relative;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      height: max-content;
+
+      .title3 {
+        line-height: 18px;
+      }
+
+      .to-link {
+        @include clickZone-0;
+        margin-top: 0;
+
+        &__text {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .useful-card {
+    min-height: 254px + 202px;
+
+    .btn {
+      padding: 17px 35px;
+    }
+  }
+
+  .product-card {
+    margin-bottom: 78px;
+
+    .model {
+      margin-top: -16px;
+      padding: 20px 0 0;
+      gap: 16px;
 
       &::after {
-        top: 16px;
-        left: 16px;
-        font-size: 12px;
-        line-height: 15.5px;
+        top: 0;
       }
 
-      &__wrap-text {
+      .titleDescr {
+        &__title3 {
+          margin-bottom: 10px;
+        }
+
+        .descr {
+          max-width: 70%;
+        }
+      }
+
+      .price {
+        font-size: 24px;
+        line-height: 31px;
+      }
+
+      .links {
+        width: 100%;
+
+        a {
+          width: 100%;
+
+          &.btn-bg {
+            font-weight: 600;
+            padding: 16px 30px;
+          }
+        }
+      }
+    }
+
+    .descrip {
+      max-width: 100%;
+
+      &__draw {
         gap: 16px;
 
-        .title3 {
-          font-size: 16px;
-          line-height: 21px;
-        }
-
-        .btn-stroke {
-          padding: 12px 25px;
+        img {
+          min-width: 140px;
+          max-height: 64px
         }
       }
+    }
 
+    .character {
+      &-list {
+        @include flexC;
+        gap: 7.5px;
+
+        .item {
+          @include flexC;
+
+          &__main {
+            flex-basis: 100%;
+            font-size: 10px;
+            line-height: 13.5px;
+
+            &::after {
+              display: none;
+            }
+          }
+
+          &__sec {
+            line-height: 20px;
+          }
+        }
+
+      }
     }
   }
 
@@ -647,6 +823,7 @@
       position: relative;
       grid-row: 1/span 1;
       padding: 12px 0;
+      margin-left: 0;
 
       &__img {
         margin: 0 auto;
@@ -700,13 +877,20 @@
         }
 
         .nav__list {
-          gap: 30px;
+          gap: 32px;
+          white-space: nowrap;
         }
       }
     }
 
     .form-top {
       grid-row: 4/span 1;
+      padding: 11px 33px;
+
+      .search-svg {
+        width: 25px;
+        height: 25px;
+      }
     }
 
     .userBasket {
@@ -716,20 +900,17 @@
 
 
 
-
   .hero {
     margin-bottom: 32px + 60px;
     padding: 30px 0;
     position: relative;
 
     &__container {
-      .title2-banner {
+      .title2-hero {
         margin-bottom: 0;
         padding-left: 18px;
         width: 85%;
         min-height: 210px - (30px * 2);
-        font-size: 20px;
-        line-height: 27px;
       }
 
       .btn-toMob {
@@ -740,9 +921,9 @@
 
 
 
-
   .offers {
     .discount {
+      row-gap: 24px;
       grid-template-columns: 1fr;
       grid-template-areas:
         'o1'
@@ -750,8 +931,12 @@
         'o3';
 
       .disc-card {
-        &.card3 {
-          display: block;
+
+        &.card3,
+        &.card4,
+        &.card5,
+        &.card6 {
+          display: flex;
         }
       }
     }
@@ -759,14 +944,13 @@
 
 
 
-
   .best {
+    padding-bottom: 72px;
+
     .rating {
       gap: 16px;
     }
   }
-
-
 
 
 
@@ -782,17 +966,13 @@
       margin-left: 0;
 
       .text-wrap {
+        padding-top: 2px;
         margin: 0;
         width: 65%;
 
-        .title2-banner-new {
-          font-size: 24px;
-          line-height: 29px;
-        }
-
         &__descr {
-          font-size: 18px;
-          line-height: 20px;
+          font-size: 16px;
+          line-height: 18px;
         }
       }
 
@@ -805,51 +985,19 @@
 
 
   .categ {
+    padding-bottom: 73px;
+
     .cat {
       grid-template-rows: 332px 206px;
       grid-auto-rows: 206px;
-
-      .cat-card {
-        background-position: left bottom 16px;
-        background-size: 100%;
-        padding: 16px;
-        gap: 4px;
-
-        .list {
-          flex-direction: column;
-          gap: 4px;
-          font-size: 10px;
-          line-height: 10px;
-        }
-
-        .card-wrap {
-          position: relative;
-          flex-direction: row;
-          align-items: flex-end;
-          gap: 5px;
-          height: max-content;
-
-
-          .title3 {
-            font-size: 16px;
-            line-height: 21px;
-          }
-
-          .to-link {
-            @include clickZone-0;
-            margin-top: 0;
-
-            &__text {
-              display: none;
-            }
-          }
-        }
-      }
+      gap: 16px;
+      row-gap: 32px;
 
       .card1 {
-        gap: 14px;
+        gap: 15px;
         background-position: right -10px bottom 16px;
-        background-size: 130%;
+        background-size: 120%;
+        padding: 32px 32px 16px 30px;
 
         .list {
           flex-direction: row;
@@ -865,32 +1013,39 @@
       }
 
       .card2 {
-        background-image: url('../../img/cat2.png');
-        background-position: left -20px bottom 16px;
-        background-size: 130%;
+        @include image-set('../../img/cat2');
+        background-position: left -17px bottom 14px;
+        background-size: 125%;
+      }
+
+      .card3,
+      .card4,
+      .card5 {
+        background-position: left bottom 14px;
       }
 
       .card3 {
-        background-image: url('../../img/cat3.png');
+        @include image-set('../../img/cat3');
         background-size: 115%;
       }
 
       .card4 {
-        background-image: url('../../img/cat4.png');
+        @include image-set('../../img/cat4');
         background-size: 105%;
       }
 
       .card5 {
-        background-image: url('../../img/cat5.png');
+        @include image-set('../../img/cat5');
+        background-size: 95%;
       }
     }
   }
 
 
 
-
   .useful {
     .useful-list {
+      row-gap: 24px;
       grid-template-columns: 1fr;
       grid-template-areas:
         'u1'
@@ -899,10 +1054,6 @@
         'u4'
         'u5'
       ;
-
-      .useful-card {
-        min-height: 254px + 202px;
-      }
 
       .card3,
       .card4,
@@ -914,16 +1065,11 @@
 
 
 
-
-
   .fb {
     .content {
-      .title2 {
-        font-size: 24px;
-        line-height: 24px;
-      }
-
       .fb__form {
+        gap: 28px;
+
         .checkbox {
           &__span {
             font-size: 12px;
@@ -941,48 +1087,43 @@
 
 
 
-
-
-
   .footer {
     .foot {
       &__logoSoc {
         @include flexC-x-center;
-        gap: 24px;
+        gap: 20px;
 
         .soc {
           padding-right: 0;
         }
       }
 
-      &__nav {
+      .nav {
         .nav__head {
           display: grid;
-          grid-template-columns: repeat(6, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 16px;
           row-gap: 24px;
           grid-template-areas:
-            'one one one two two two'
-            'three three three four four four';
+            'navF1 navF2'
+            'navF3 navF4';
 
           &-item {
             &:nth-child(1) {
-              grid-area: one;
-              grid-row: 1/span 1;
+              grid-area: navF1;
             }
 
             &:nth-child(2) {
-              grid-area: two;
-              grid-row: 1/span 1;
+              grid-area: navF2;
             }
 
             &:nth-child(3) {
-              grid-area: three;
+              grid-area: navF3;
               grid-row: 2/span 1;
             }
 
             &:nth-child(4) {
-              grid-area: four;
+              grid-area: navF4;
               grid-row: 2/span 1;
             }
           }
@@ -993,10 +1134,16 @@
 
 
 
-
-
   .catalog {
+    padding-bottom: 68px;
+
     &__content {
+      .title-catalog {
+        font-size: 24px;
+        line-height: 31px;
+        margin-top: -9px;
+      }
+
       &-left {
         .filter {
           gap: 16px;
@@ -1007,11 +1154,14 @@
             'fil3 fil3';
 
           &__item {
+            min-width: 100%;
+
             &:nth-child(1) {
               grid-area: fil1;
             }
 
             &:nth-child(2) {
+              padding-left: 13px;
               grid-area: fil2;
             }
 
@@ -1025,61 +1175,38 @@
 
       &-right {
         .rating {
-          padding-top: 8px;
+          padding-top: 5px;
           gap: 16px;
+        }
+
+        .catalog__pagin {
+          .btn {
+            padding: 6px 9px;
+          }
         }
       }
     }
   }
-
-
-
-
 
 
 
   .product {
     &__content {
-      .product-card {
-        padding: 0 0 32px 0;
-        row-gap: 32px;
-        grid-template-columns: 1fr;
-
-        .model {
-          min-height: 350px;
-          align-self: center;
-        }
-
-        .descrip {
-          max-width: 82.5%;
-        }
-
-        .character {
-          &-list {
-            .item {
-              &__main {
-                flex-basis: 63%;
-              }
-            }
-          }
-        }
-      }
+      margin-top: -10px;
 
       &-bottom {
-        .rating {
-          grid-template-columns: repeat(2, 1fr);
+        .product__content-title3 {
+          margin-bottom: 30px;
+          font-size: 24px;
+          line-height: 16px;
+        }
 
-          .card12 {
-            display: none;
-          }
+        .rating {
+          gap: 16px;
         }
       }
     }
   }
-
-
-
-
 
 
 
@@ -1090,16 +1217,27 @@
     }
 
     &__content {
-      .title2 {
-        font-size: 24px;
-        line-height: 24px;
-      }
+      gap: 28px;
 
       .main-list {
         &__item {
-          .title3 {
-            font-size: 16px;
-            line-height: 22px;
+          &.item2 {
+            .descr {
+              line-height: 21px;
+            }
+          }
+
+          &.item3 {
+            .title3 {
+              font-size: 14px;
+              margin-bottom: 7px;
+            }
+
+            .edge-list {
+              &__item-title {
+                font-size: 17px;
+              }
+            }
           }
 
           &.item5 {

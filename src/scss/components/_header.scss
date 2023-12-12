@@ -24,7 +24,6 @@
   .nav {
     @include flex-y-center;
     justify-self: flex-end;
-    white-space: nowrap;
 
     &__list {
       @include flex-y-center;
@@ -47,7 +46,7 @@
       grid-area: nM;
 
       .nav__list {
-        gap: 91px;
+        gap: 93px;
       }
 
     }
@@ -62,5 +61,6 @@
   .userBasket {
     grid-area: UB;
     justify-self: flex-end;
+    margin-bottom: 32px;
   }
 }

@@ -1,5 +1,5 @@
 .fb {
-  padding: 70px 0;
+  padding: 70px 0 73px;
 
   &__container {
     @include flex-center-space;
@@ -7,7 +7,7 @@
 
     .content {
       @include flexC;
-      width: 50%;
+      flex-basis: 50%;
 
 
       .title2 {
@@ -21,7 +21,7 @@
 
       .fb__form {
         @include flexC;
-        gap: 30px;
+        gap: 27px;
         width: 100%;
 
         &-wrap {
@@ -105,7 +105,7 @@
     }
 
     .picture {
-      width: 50%;
+      flex-basis: 50%;
     }
   }
 }
