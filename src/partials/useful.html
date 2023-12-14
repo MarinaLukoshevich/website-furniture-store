@@ -1,10 +1,76 @@
 <section class="useful">
-  <div class="container">
-    <h2 class="title2">
-      Полезное
-    </h2>
+  <div class="container useful__container">
+    <div class="titleArrows">
+      <h2 class="title2">
+        Полезное
+      </h2>
+      @include('components/swiperArrows.html')
+    </div>
 
-    <ul class="useful-list list-reset">
+    <div class="useful__wrap">
+      <div class="useful-swiper swiper">
+        <ul class="swiper-wrapper list-reset">
+          <li class="useful__slide swiper-slide">
+            <div class="useful-card card1">
+              <p class="text">
+                И нет сомнений, что сделанные на базе интернет-аналитики выводы представляют собой не что иное?
+              </p>
+              <a href="#" class="btn-reset btn btn-stroke">
+                Читать
+              </a>
+            </div>
+          </li>
+
+          <li class="useful__slide swiper-slide">
+            <div class="useful-card card2">
+              <p class="text">
+                Как принято считать, некоторые особенности приносят несомненную пользу обществу?
+              </p>
+              <a href="#" class="btn-reset btn btn-stroke">
+                Читать
+              </a>
+            </div>
+          </li>
+
+          <li class="useful__slide swiper-slide">
+            <div class="useful-card card3">
+              <p class="text">
+                Ясность нашей позиции очевидна: укрепление и развитие внутренней структуры?
+              </p>
+              <a href="#" class="btn-reset btn btn-stroke">
+                Читать
+              </a>
+            </div>
+          </li>
+
+          <li class="useful__slide swiper-slide">
+            <div class="useful-card card4">
+              <p class="text">
+                Прежде всего, консультация с широким активом однозначно фиксирует необходимость распределения?
+              </p>
+              <a href="#" class="btn-reset btn btn-stroke">
+                Читать
+              </a>
+            </div>
+          </li>
+
+          <li class="useful__slide swiper-slide">
+            <div class="useful-card card5">
+              <p class="text">
+                Как принято считать, некоторые особенности приносят несомненную пользу обществу?
+              </p>
+              <a href="#" class="btn-reset btn btn-stroke">
+                Читать
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <!-- <ul class="useful-list list-reset">
       <li class="useful-card card1">
         <p class="text">
           И нет сомнений, что сделанные на базе интернет-аналитики выводы представляют собой не что иное?
@@ -49,6 +115,7 @@
           Читать
         </a>
       </li>
-    </ul>
+    </ul> -->
+
   </div>
 </section>

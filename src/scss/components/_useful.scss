@@ -1,4 +1,42 @@
 .useful {
+  .titleArrows {
+    @include flex-center-space;
+  }
+
+  &__wrap {
+    .useful-swiper {
+      .swiper-wrapper {
+        .useful__slide {
+          .useful-card {
+            .text {
+              min-height: 98px;
+            }
+
+            &.card1 {
+              @include image-set('../../img/useful1');
+            }
+
+            &.card2 {
+              @include image-set('../../img/useful2');
+            }
+
+            &.card3 {
+              @include image-set('../../img/useful3');
+            }
+
+            &.card4 {
+              @include image-set('../../img/useful4');
+            }
+
+            &.card5 {
+              @include image-set('../../img/useful5');
+            }
+          }
+        }
+      }
+    }
+  }
+
   .useful-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -9,27 +47,27 @@
 
     .card1 {
       grid-area: u1;
-       @include image-set('../../img/useful1');
+      @include image-set('../../img/useful1');
     }
 
     .card2 {
       grid-area: u2;
-       @include image-set('../../img/useful2');
+      @include image-set('../../img/useful2');
     }
 
     .card3 {
       grid-area: u3;
-       @include image-set('../../img/useful3');
+      @include image-set('../../img/useful3');
     }
 
     .card4 {
       grid-area: u4;
-       @include image-set('../../img/useful4');
+      @include image-set('../../img/useful4');
     }
 
     .card5 {
       grid-area: u5;
-       @include image-set('../../img/useful5');
+      @include image-set('../../img/useful5');
     }
 
     .card3,

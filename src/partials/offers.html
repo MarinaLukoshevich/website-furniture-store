@@ -1,14 +1,152 @@
 <section class="offers">
   <div class="container offers__container">
-    <h2 class="title2">
-      Специальные предложения
-    </h2>
+    <div class="titleArrows">
+      <h2 class="title2">
+        Специальные предложения
+      </h2>
+      @include('components/swiperArrows.html')
+    </div>
+
+    <div class="offers__wrap">
+      <div class="offers-swiper swiper">
+        <ul class="swiper-wrapper list-reset">
+          <li class="offers-slide swiper-slide">
+            <div class="disc-card card1">
+              <picture class="picture">
+                <source srcset="../img/offer1.webp" type="image/webp">
+                <img loading="lazy" src="../img/offer1.png" alt="Специальное предложение">
+              </picture>
+
+              <div class="disc-card__wrap-text">
+                <h3 class="title3">
+                  Кресло велюровое &Prime;X-24&Prime;
+                </h3>
+                <span class="price">
+                  15 990 руб
+                </span>
+                <button class="btn-reset btn btn-stroke">
+                  Купить
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="offers-slide swiper-slide">
+            <div class="disc-card card-draw card2">
+              <picture class="picture">
+                <source srcset="../img/offer2.webp" type="image/webp">
+                <img loading="lazy" src="../img/offer2.png" alt="Специальное предложение">
+              </picture>
+
+              <div class="disc-card__wrap">
+                <div class="disc-card__wrap-text">
+                  <h3 class="title3">
+                    Диван тканевый &Prime;Z-44&Prime;
+                  </h3>
+                  <span class="price">
+                    22 990 руб
+                  </span>
+                  <button class="btn-reset btn btn-stroke">
+                    Купить
+                  </button>
+                </div>
+
+                <img loading="lazy" src="../img/draw.svg" class="draw-img" width="230" height="107" alt="Чертёж">
+              </div>
+            </div>
+          </li>
+
+          <li class="offers-slide swiper-slide">
+            <div class="disc-card card3">
+              <picture class="picture">
+                <source srcset="../img/offer3.webp" type="image/webp">
+                <img loading="lazy" src="../img/offer3.png" alt="Специальное предложение">
+              </picture>
+
+              <div class="disc-card__wrap-text">
+                <h3 class="title3">
+                  Будильник &Prime;Quartz-23&Prime;
+                </h3>
+                <span class="price">
+                  1 290 руб
+                </span>
+                <button class="btn-reset btn btn-stroke">
+                  Купить
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="offers-slide swiper-slide">
+            <div class="disc-card card4">
+              <picture class="picture">
+                <source srcset="../img/offer4.webp" type="image/webp">
+                <img loading="lazy" src="../img/offer4.png" alt="Специальное предложение">
+              </picture>
+
+              <div class="disc-card__wrap-text">
+                <h3 class="title3">
+                  Мини-скульптура &Prime;Oh my deer&Prime;
+                </h3>
+                <span class="price">
+                  690 руб
+                </span>
+                <button class="btn-reset btn btn-stroke">
+                  Купить
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="offers-slide swiper-slide">
+            <div class="disc-card card5">
+              <picture class="picture">
+                <source srcset="../img/offer5.webp" type="image/webp">
+                <img loading="lazy" src="../img/offer5.png" alt="Специальное предложение">
+              </picture>
+
+              <div class="disc-card__wrap-text">
+                <h3 class="title3">
+                  Диван вел-флок &Prime;Z-85&Prime;
+                </h3>
+                <span class="price">
+                  22 990 руб
+                </span>
+                <button class="btn-reset btn btn-stroke">
+                  Купить
+                </button>
+              </div>
+            </div>
+          </li>
+
+          <li class="offers-slide swiper-slide">
+            <div class="disc-card card6">
+              <picture class="picture">
+                <source srcset="../img/offer6.webp" type="image/webp">
+                <img loading="lazy" src="../img/offer6.png" alt="Специальное предложение">
+              </picture>
+
+              <div class="disc-card__wrap-text">
+                <h3 class="title3">
+                  Термометр + гидрометр &Prime;H-18&Prime;
+                </h3>
+                <span class="price">
+                  1 390 руб
+                </span>
+                <button class="btn-reset btn btn-stroke">
+                  Купить
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
 
 
 
 
-
-    <ul class="discount list-reset">
+    <!-- <ul class="discount list-reset">
       <li class="disc-card card1">
         <picture class="picture">
           <source srcset="../img/offer1.webp" type="image/webp">
@@ -126,9 +264,7 @@
           </button>
         </div>
       </li>
-
-
-    </ul>
+    </ul> -->
 
   </div>
 </section>

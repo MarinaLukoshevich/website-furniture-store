@@ -192,7 +192,6 @@
   border-radius: $r-10;
   color: $grey;
   background-color: $grey-md;
-
 }
 
 .btn-pagin {
@@ -214,6 +213,93 @@
     }
   }
 }
+
+
+.swiper-arrows {
+  @include flex-y-center;
+  gap: 30px;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: $bor-2;
+    border-color: $primary;
+    border-radius: 50%;
+    transition: $tr;
+    transition-property: background-color, border-color;
+
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border: $bor-2;
+      border-color: $primary;
+      transform: rotate(45deg);
+      transform-origin: center;
+      transition: $tr border-color;
+    }
+
+    &:hover {
+      background-color: $primary;
+
+      &::before {
+        border-color: $white;
+      }
+    }
+
+    &:focus-visible:not(:active):not(:hover) {
+      background-color: $primary-l;
+
+      &::before {
+        border-color: $white;
+      }
+    }
+
+    &:active {
+      background-color: $primary-s;
+      border-color: $primary-s;
+
+      &::before {
+        border-color: $white;
+      }
+    }
+
+    &.swiper-button-disabled {
+      opacity: 1;
+      border-color: $grey;
+
+      &::before {
+        border-color: $grey;
+      }
+    }
+  }
+
+  .swiper-button-prev {
+    &::before {
+      right: 8px;
+      border-top: none;
+      border-right: none;
+    }
+  }
+
+  .swiper-button-next {
+    &::before {
+      left: 8px;
+      border-bottom: none;
+      border-left: none;
+    }
+  }
+}
+
+
 
 // BTN-WRAP in hero & banner
 .btn-fromMob {
@@ -335,9 +421,6 @@
     &:active {
       @include arrow-svgA;
     }
-
-
-
   }
 
 }
@@ -665,11 +748,11 @@
 
 .disc-card {
   @include discount;
-  min-height: 511px;
-  padding: 64px 20px 30px;
+  padding: 62px 20px 30px;
 
   .picture {
     height: 100%;
+
     img {
       max-height: 218px;
     }
@@ -696,6 +779,7 @@
 
   &.card-draw {
     padding: 30px 20px;
+
     .disc-card__wrap {
       @include flex-end-space;
       width: 100%;

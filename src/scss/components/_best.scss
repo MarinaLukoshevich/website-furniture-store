@@ -2,12 +2,12 @@
   padding-bottom: 70px;
 
   .rating {
+    margin-bottom: 32px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     grid-template-areas:
       'b1 b2 b3 b4';
-
 
     .card1 {
       grid-area: b1;
@@ -24,6 +24,11 @@
     .card4 {
       grid-area: b4;
     }
+  }
+
+  .open-more-btn {
+    display: block;
+    margin: 0 auto;
   }
 }
 

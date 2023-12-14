@@ -1,1 +1,3 @@
-console.log('maxgraph');
+
+alert('maxgraph');
+
