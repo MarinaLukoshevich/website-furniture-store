@@ -67,15 +67,58 @@
       </ul>
     </nav>
 
-    <form class="form form-top" action="https://jsonplaceholder.typicode.com/posts" method="post">
-      <svg class="search-svg" width="20px" height="20px" viewbox="0 0 20 20">
-        <use xlink:href="img/sprite.svg#search"></use>
-      </svg>
-      <input type="text" name="searchTheSite" class="input-reset input input-top" placeholder="Я хочу купить...">
-      <button class="btn-reset" aria-label="Искать по сайту">
-        @include('components/arrow.html')
-      </button>
-    </form>
+    <div class="header__form">
+      <form class="form form-top" action="https://jsonplaceholder.typicode.com/posts" method="post">
+        <button class="btn-reset btn-search" aria-label="Искать товар по сайту">
+          <svg class="search-svg" width="20px" height="20px" viewbox="0 0 20 20">
+            <use xlink:href="img/sprite.svg#search"></use>
+          </svg>
+        </button>
+        <input type="text" name="searchTheSite" class="input-reset input input-top" placeholder="Я хочу купить...">
+        <button class="btn-reset btn-categ" aria-label="Искать категорию по сайту">
+          @include('components/arrow.html')
+        </button>
+      </form>
+
+      <div class="dropdown">
+        <button class="dropdown__btn btn-reset btn-stroke btn">
+          Выбрать категорию
+          <svg class="drop-arrow-svg icon" width="13px" height="8px" viewbox="0 0 13 8">
+            <use xlink:href="img/sprite.svg#drop-arrow"></use>
+          </svg>
+        </button>
+
+        <ul class="dropdown__list list-reset">
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Диваны</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Кресла</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Пуфы</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Кровати</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Тумбы</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Комоды</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Стулья</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Столы</a>
+          </li>
+          <li class="dropdown__list-item">
+            <a class="dropdown__link main-link" href="#">Аксессуары</a>
+          </li>
+        </ul>
+      </div>
+    </div>
 
     @include('components/userBasket.html')
 

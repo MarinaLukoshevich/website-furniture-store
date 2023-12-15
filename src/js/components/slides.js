@@ -24,6 +24,7 @@ let catalogSwiper = new Swiper('.catalog-swiper', {
 
 
 
+
 // OFFERS
 let offersSwiper = new Swiper('.offers-swiper', {
   grabCursor: true,
@@ -50,19 +51,19 @@ let offersSwiper = new Swiper('.offers-swiper', {
   },
 
   breakpoints: {
-    321: {
+    651: {
       slidesPerView: 2,
       slidesPerGroup: 2,
     },
 
-    769: {
+    1001: {
       slidesPerView: 'auto',
       slidesPerGroup: 3,
     },
   },
 })
-// на разрешении 320px - 0px отключить свайпер
-window.matchMedia('(min-width: 321px)').matches || offersSwiper.disable();
+// на разрешении 320px - 0px свайпер не работает
+window.matchMedia('(min-width: 651px)').matches || offersSwiper.destroy();
 
 
 
@@ -93,18 +94,18 @@ let usefulSwiper = new Swiper('.useful-swiper', {
   },
 
   breakpoints: {
-    321: {
+    651: {
       slidesPerView: 2,
     },
-    769: {
+    1001: {
       slidesPerView: 3,
     },
-    1025: {
+    1201: {
       slidesPerView: 2,
     },
   },
 })
-window.matchMedia('(min-width: 321px)').matches || usefulSwiper.disable();
+window.matchMedia('(min-width: 651px)').matches || usefulSwiper.destroy();
 
 
 

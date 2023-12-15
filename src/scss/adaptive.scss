@@ -83,7 +83,7 @@
       }
     }
 
-    .form-top {
+    .header__form {
       grid-row: 4/span 1;
       max-width: 77%;
     }
@@ -108,7 +108,7 @@
 
 
   .offers {
-    .offers__wrap {
+    &__wrap {
       .offers-swiper {
         .swiper-wrapper {
           .offers-slide {
@@ -427,10 +427,13 @@
       }
     }
 
-    .form-top {
+    .header__form {
       grid-row: 5/span 1;
       max-width: 100%;
-      padding: 9px 29px;
+
+      .form-top {
+        padding: 9px 29px;
+      }
     }
 
     .userBasket {
@@ -836,8 +839,15 @@
     }
   }
 
-  .route {
+  .route,
+  .swiper-arrows {
     display: none;
+  }
+
+  .swiper-wrapper {
+    display: grid;
+    row-gap: 24px;
+    grid-template-columns: 1fr;
   }
 
 
@@ -920,13 +930,18 @@
       }
     }
 
-    .form-top {
+    .header__form {
       grid-row: 4/span 1;
-      padding: 11px 33px;
 
-      .search-svg {
-        width: 25px;
-        height: 25px;
+      .form-top {
+        padding: 11px 33px;
+      }
+
+      .dropdown {
+        border-radius: $r-10;
+        &__btn {
+          border-radius: $r-10;
+        }
       }
     }
 
@@ -959,13 +974,7 @@
 
 
   .offers {
-    .titleArrows {
-      .swiper-arrows {
-        display: none;
-      }
-    }
-
-    .offers__wrap {
+    &__wrap {
       .offers-swiper {
         .swiper-wrapper {
           display: grid;
@@ -981,10 +990,6 @@
 
             .disc-card {
               gap: 19px;
-
-              &::after {
-                width: 82px;
-              }
 
               .picture {
                 img {
@@ -1121,31 +1126,18 @@
 
 
   .useful {
-    .titleArrows {
-      .swiper-arrows {
-        display: none;
-      }
-    }
-
     &__wrap {
       .useful-swiper {
-        .swiper-wrapper {
-          display: grid;
-          row-gap: 24px;
-          grid-template-columns: 1fr;
-
-          .useful__slide {
-            .useful-card {
-              .text {
-                min-height: 110px;
-              }
+        .useful__slide {
+          .useful-card {
+            .text {
+              min-height: 110px;
             }
           }
         }
       }
     }
   }
-
 
   // .useful {
   //   .useful-list {

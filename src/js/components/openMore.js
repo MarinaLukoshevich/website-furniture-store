@@ -8,6 +8,10 @@ function removeBtn() {
   btn.style.display = "none";
 }
 
+if (items.length <= 4) {
+  removeBtn();
+}
+
 // from 1024px to 1920 & more
 if (window.matchMedia('(min-width: 1025px)').matches) {
   for (let i = 4; i < items.length; i++) {
@@ -34,4 +38,6 @@ else {
     }
   }
 }
+
+
 

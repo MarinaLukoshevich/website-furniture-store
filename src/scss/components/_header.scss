@@ -52,10 +52,62 @@
     }
   }
 
-  .form-top {
+  .header__form {
     grid-area: fT;
     grid-row: 3/span 1;
     margin-bottom: 32px;
+    position: relative;
+
+    .dropdown {
+      width: 300px;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      background-color: $white;
+      border: $bor-2;
+      border-color: $grey-l;
+      border-radius: 0 $r-10 $r-10 $r-10;
+      opacity: 0;
+      transform-origin: top right;
+      transform: translateX(-100%);
+      transition: $tr;
+      transition-property: opacity transform;
+
+      &__btn {
+        width: 100%;
+        min-height: 60px;
+        padding: 20px 32px;
+        @include flex-center-space;
+        gap: 10px;
+        border-radius: 0 $r-10 $r-10 0;
+
+        &:hover,
+        &:focus-visible,
+        &:active {
+          .drop-arrow-svg {
+            fill: $white;
+          }
+        }
+      }
+
+      &__list {
+        padding: 22px 30px;
+        width: 85%;
+        column-count: 2;
+
+        &-item {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .dropdown--active {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   .userBasket {

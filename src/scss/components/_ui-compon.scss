@@ -23,9 +23,11 @@
 }
 
 .user-svg,
-.basket-svg {
+.basket-svg,
+.drop-arrow-svg {
   fill: $primary;
 }
+
 
 // icon::hov,foc,active (close,soc,user,basket)
 @mixin iconState() {
@@ -838,7 +840,7 @@
 
 .useful-card {
   max-width: 624px;
-  background: url('../../img/useful1.jpg') no-repeat top left / contain;
+  background: url('../../img/useful1.jpg') no-repeat top center / contain;
   @include flexC;
   gap: 38px;
   padding: 456px 30px 30px 30px;

@@ -60,4 +60,13 @@
       ></path>
     </g>
   </symbol>
+
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 8" id="drop-arrow">
+    <g id="drop-arrow">
+      <path id="Vector" fill-rule="evenodd" clip-rule="evenodd"
+        d="M6.65674 1.50826L1.75413 6.41087L0.999884 5.65662L6.65674 -0.000231743L12.3136 5.65662L11.5593 6.41087L6.65674 1.50826Z"
+        ></path>
+    </g>
+  </symbol>
+
 </svg>
