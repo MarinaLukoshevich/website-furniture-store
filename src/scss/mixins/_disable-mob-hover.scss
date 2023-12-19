@@ -1,7 +1,19 @@
+// @mixin hover {
+//   @media (any-hover: hover) {
+//     &:hover {
+//       @content;
+//     }
+//   }
+// }
+
 @mixin hover {
-  @media (any-hover: hover) {
-    &:hover {
+  @media (min-width: (1200px)) {
+  .page__body {
       @content;
     }
   }
+}
+
+@include hover {
+  
 }

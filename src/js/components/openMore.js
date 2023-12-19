@@ -1,4 +1,3 @@
-
 const itemsWrap = document.querySelector('.open-more-wrap');
 const items = document.querySelectorAll('.open-more-item');
 const btn = document.querySelector('.open-more-btn');
@@ -12,8 +11,8 @@ if (items.length <= 4) {
   removeBtn();
 }
 
-// from 1024px to 1920 & more
-if (window.matchMedia('(min-width: 1025px)').matches) {
+// min 1201px to 1920 & more
+if (window.matchMedia('(min-width: 1201px)').matches) {
   for (let i = 4; i < items.length; i++) {
     items[i].style.display = "none";
   }
@@ -25,7 +24,7 @@ if (window.matchMedia('(min-width: 1025px)').matches) {
     }
   }
 }
-// to 1024px
+// max 1200px
 else {
   for (let i = 6; i < items.length; i++) {
     items[i].style.display = "none";

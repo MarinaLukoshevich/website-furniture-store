@@ -1,3 +1,5 @@
+@import "./ui-components";
+
 .header {
   &__container {
     display: grid;
@@ -9,14 +11,25 @@
       'fT fT fT fT fT fT fT fT fT fT UB UB'
   }
 
+  @each $item,
+  $gridName in ('.logo': logo,
+    '.phone-wrap': phone,
+    '.nav-sec': nS,
+    '.nav-main': nM,
+    '.header__form': fT,
+    '.userBasket': UB,
+  ) {
+    #{$item} {
+      grid-area: $gridName;
+    }
+  }
+
   .logo {
-    grid-area: logo;
     @include flex-y-center;
     grid-row: 2/span 1;
   }
 
   .phone-wrap {
-    grid-area: phone;
     grid-row: 1/span 1;
     @include flex-y-center;
   }
@@ -31,56 +44,119 @@
 
     &.nav-sec {
       position: relative;
-      @include bgColor;
-      grid-area: nS;
-      color: $grey;
       padding: 18px 0;
+      color: $grey;
+      @include bgColor;
 
       .nav__list {
         gap: 64px;
       }
-
     }
 
     &.nav-main {
-      grid-area: nM;
 
       .nav__list {
         gap: 93px;
       }
-
     }
   }
 
   .header__form {
-    grid-area: fT;
+    position: relative;
     grid-row: 3/span 1;
     margin-bottom: 32px;
-    position: relative;
+
+    .form-top {
+      @include flex-y-center;
+      justify-content: flex-start;
+      padding: 9px 32px;
+      border-radius: $r-10;
+      background-color: $grey-l;
+      transition: $tr;
+      transition-property: background-color, border-color;
+
+      .search-svg {
+        margin-right: 7px;
+        fill: $grey;
+        transition: fill $tr;
+      }
+
+      .input-top {
+        width: 100%;
+        line-height: 40px;
+        background-color: $grey-l;
+
+        &::placeholder {
+          color: $grey;
+        }
+      }
+
+      &:hover:not(:active) {
+        background-color: $grey-md;
+
+        .input-top {
+          background-color: $grey-md;
+        }
+      }
+
+      &:focus-within:not(:hover):not(:active) {
+        border-color: $primary;
+        background-color: $pink-l;
+
+        .input-top {
+          border-color: $primary;
+          background-color: $pink-l;
+        }
+      }
+
+      &:active {
+        .search-svg {
+          fill: $primary;
+        }
+      }
+
+      button {
+        margin-left: auto;
+        width: 32px;
+        height: 32px;
+
+        &:hover {
+          @include arrow-svgH;
+        }
+
+        &:focus-visible:not(:active) {
+          @include arrow-svgF;
+        }
+
+        &:active {
+          @include arrow-svgA;
+        }
+      }
+
+    }
 
     .dropdown {
-      width: 300px;
       position: absolute;
-      z-index: 10;
+      z-index: -1;
       top: 0;
       right: 0;
-      background-color: $white;
+      width: 300px;
       border: $bor-2;
       border-color: $grey-l;
       border-radius: 0 $r-10 $r-10 $r-10;
+      background-color: $white;
       opacity: 0;
-      transform-origin: top right;
       transform: translateX(-100%);
       transition: $tr;
-      transition-property: opacity transform;
+      transition-property: opacity, transform, z-index;
 
       &__btn {
-        width: 100%;
-        min-height: 60px;
-        padding: 20px 32px;
         @include flex-center-space;
         gap: 10px;
+        padding: 20px 32px;
         border-radius: 0 $r-10 $r-10 0;
+        width: 100%;
+        min-height: 60px;
 
         &:hover,
         &:focus-visible,
@@ -105,13 +181,13 @@
     }
 
     .dropdown--active {
+      z-index: 10;
       opacity: 1;
       transform: none;
     }
   }
 
   .userBasket {
-    grid-area: UB;
     justify-self: flex-end;
     margin-bottom: 32px;
   }

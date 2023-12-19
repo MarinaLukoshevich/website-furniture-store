@@ -94,11 +94,11 @@
   &::after {
     content: '';
     position: absolute;
-    z-index: -1;
     top: 0px;
     left: -7px;
     right: -7px;
     bottom: 0px;
+    z-index: -1;
     background-color: $pink-v;
     opacity: 0;
     transition: $tr;
@@ -123,16 +123,16 @@
 @mixin discount() {
   &::after {
     content: '';
-    background: url('../../img/discount.svg') no-repeat center / cover;
     position: absolute;
     top: 30px;
     left: 0;
-    height: 34px;
-    width: 82px;
-    padding-right: 10px;
     @include  flex-xy-center;
+    padding-right: 10px;
+    width: 82px;
+    height: 34px;
     font: 700 14px / 19px $font-f;
     color: $white;
+    background: url('../../img/discount.svg') no-repeat center / cover;
   }
 }
 
@@ -154,12 +154,26 @@
 @mixin starReting() {
   &::after {
     content: '';
-    background: url('../../img/star.svg') no-repeat left center / 15px 15px;
     position: absolute;
     top: 30px;
     left: 30px;
     padding-left: 22.5px;
     font: 400 16px / 20px $font-f;
     color: $orange;
+    background: url('../../img/star.svg') no-repeat left center / 15px 15px;
+  }
+}
+
+
+@mixin usefulImg() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 426px;
+    background: no-repeat center / cover;
+    @include image-set('../../img/useful1');
   }
 }

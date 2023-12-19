@@ -9,14 +9,13 @@
       @include flexC;
       flex-basis: 50%;
 
-
       .title2 {
         margin-bottom: 9px;
       }
 
       .descr {
-        line-height: 19px;
         margin-bottom: 16px;
+        line-height: 19px;
       }
 
       .fb__form {
@@ -27,13 +26,15 @@
         &-wrap {
           width: 100%;
 
-          .input {
+          .fb__input {
             padding: 7px 18px;
             border: $bor-1;
+            border-radius: $r-10;
             width: 100%;
             line-height: 40px;
-            border-radius: $r-10;
             background-color: $grey-l;
+            transition: $tr;
+            transition-property: color,  background-color, border-color;
 
             &::placeholder {
               color: $grey;
@@ -43,13 +44,12 @@
               background-color: $grey-md;
             }
 
-            &:focus-visible:not(:hover):not(:active) {
+            &:focus-visible:not(:hover):not(:active):not(.just-validate-success-field) {
               border-color: $primary;
               background-color: $pink-l;
             }
 
-            // валидное поле !!!
-            &:active {
+            &.just-validate-success-field {
               border-color: $green;
             }
           }
@@ -72,15 +72,15 @@
             }
 
             &-link {
-              color: $primary;
               border-bottom: $bor-1;
               border-color: $primary;
+              color: $primary;
               transition: $tr;
-              transition-property: color border-color;
+              transition-property: color, border-color;
 
               &:hover {
-                color: $primary-l;
                 border-color: $primary-l;
+                color: $primary-l;
               }
 
               &:focus-visible:not(:hover):not(:active) {
@@ -88,8 +88,8 @@
               }
 
               &:active {
-                color: $primary-s;
                 border-color: $primary-s;
+                color: $primary-s;
               }
             }
           }
@@ -99,8 +99,6 @@
           padding: 19px 35px;
           font-weight: 600;
         }
-
-
       }
     }
 

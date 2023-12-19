@@ -1,6 +1,10 @@
 .useful {
   .titleArrows {
     @include flex-center-space;
+
+    .title2 {
+      margin-bottom: 28px;
+    }
   }
 
   &__wrap {
@@ -8,73 +12,30 @@
       .swiper-wrapper {
         .useful__slide {
           .useful-card {
-            .text {
-              min-height: 98px;
-            }
+            position: relative;
+            @include usefulImg;
+          }
 
-            &.card1 {
-              @include image-set('../../img/useful1');
-            }
+          @each $selector,
+          $img in ('.card1': 'img/useful1',
+            '.card2': 'img/useful2',
+            '.card3': 'img/useful3',
+            '.card4': 'img/useful4',
+            '.card5': 'img/useful5',
+          ) {
 
-            &.card2 {
-              @include image-set('../../img/useful2');
+            #{$selector} {
+              &::after {
+                @include image-set('../../' + $img);
+              }
             }
+          }
 
-            &.card3 {
-              @include image-set('../../img/useful3');
-            }
-
-            &.card4 {
-              @include image-set('../../img/useful4');
-            }
-
-            &.card5 {
-              @include image-set('../../img/useful5');
-            }
+          .text {
+            min-height: 98px;
           }
         }
       }
     }
   }
-
-  // .useful-list {
-  //   display: grid;
-  //   grid-template-columns: repeat(2, 1fr);
-  //   gap: 32px;
-  //   grid-template-areas:
-  //     'u1 u2';
-
-
-  //   .card1 {
-  //     grid-area: u1;
-  //     @include image-set('../../img/useful1');
-  //   }
-
-  //   .card2 {
-  //     grid-area: u2;
-  //     @include image-set('../../img/useful2');
-  //   }
-
-  //   .card3 {
-  //     grid-area: u3;
-  //     @include image-set('../../img/useful3');
-  //   }
-
-  //   .card4 {
-  //     grid-area: u4;
-  //     @include image-set('../../img/useful4');
-  //   }
-
-  //   .card5 {
-  //     grid-area: u5;
-  //     @include image-set('../../img/useful5');
-  //   }
-
-  //   .card3,
-  //   .card4,
-  //   .card5 {
-  //     display: none;
-  //   }
-
-  // }
 }

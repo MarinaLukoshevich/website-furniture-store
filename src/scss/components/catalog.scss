@@ -10,24 +10,28 @@
     gap: 32px;
     row-gap: 12px;
     grid-template-areas:
-      'c1 c2 c2 c2'
-      'c3 c4 c4 c4';
+      'catal1 catal2 catal2 catal2'
+      'catal3 catal4 catal4 catal4';
+
+    @each $selector,
+    $gridName in ('.title-filter': catal1,
+      '.title-catalog': catal2,
+      '.catalog__content-left': catal3,
+      '.catalog__content-right': catal4,
+    ) {
+      #{$selector} {
+        grid-area: $gridName;
+      }
+    }
 
     .title-filter {
-      grid-area: c1;
       font: 400 18px / 23.5px $font-f;
     }
 
-    .title-catalog {
-      grid-area: c2;
-    }
-
-
     &-left {
+      grid-row: 2/span 1;
       @include flexC;
       gap: 32px;
-      grid-area: c3;
-      grid-row: 2/span 1;
 
       .filter {
         @include flexC;
@@ -45,8 +49,7 @@
             gap: 11px;
           }
 
-
-          &:last-child {
+          &-price {
             .title4 {
               margin-bottom: 5px;
             }
@@ -57,6 +60,38 @@
               .price-label {
                 margin-right: 9px;
               }
+
+              .input-cost {
+                padding: 4px 13px;
+                border: $bor-1;
+                border-color: $grey;
+                border-radius: $r-3;
+                width: 86px;
+
+                // убрать стрелки с input type="number"
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                }
+
+                &::placeholder {
+                  color: $grey-s;
+                }
+
+                &:hover:not(:active) {
+                  border-color: $primary;
+                }
+
+                &:focus-visible:not(:hover):not(:active) {
+                  border-color: $primary;
+                  background-color: $pink-v;
+                }
+
+                &:active {
+                  border-color: $primary-s;
+                }
+              }
+
             }
           }
         }
@@ -66,16 +101,16 @@
       .catalog__banner {
         margin-top: auto;
         margin-bottom: 32px + 34px;
-        overflow: hidden;
         border-radius: $r-10;
+        overflow: hidden;
 
         .picture {
           display: flex;
         }
 
         &-content {
-          background-color: $black;
           padding: 30px;
+          background-color: $black;
 
           .text-wrap {
             margin-bottom: 12px;
@@ -97,97 +132,34 @@
     }
 
 
-
-
     &-right {
-      grid-area: c4;
       grid-row: 2/span 1;
+      @include flexC-x-center;
+      gap: 32px;
 
-      .catalog-swiper {
-        .swiper-wrapper {
-          .catalog__slide {
-            @include flex-xy-center;
-            border: 1px solid red;
-            min-height: 420px;
-            font: 600 30px / 16px $font-f;
-          }
+      .rating {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        padding-top: 12px;
+
+        .card10,
+        .card11,
+        .card12 {
+          display: none;
         }
       }
 
-      .catalog__pagination {
-        padding-top: 32px;
-        @include flex-xy-center;
-        gap: 16px - 8px;
+      .catalog__pagin {
+        @include flex-y-center;
+        gap: 16px;
 
-        .swiper-pagination-bullet {
-          width: 32px;
-          height: 32px;
-          border-radius: $r-10;
-          border: $bor-2;
-          border-color: $primary;
-          background-color: transparent;
-          opacity: 1;
-          @include flex-xy-center;
-          color: $primary;
-          font-size: 16px;
-          font-weight: 600;
-          transition: $tr;
-          transition-property: background-color, border-color, color;
-
-          &:hover {
-            color: $white;
-            background-color: $primary;
+        .btn {
+          &:nth-child(3) {
+            display: none;
           }
-
-          &:focus-visible:not(:hover) {
-            border-color: $primary;
-            color: $white;
-            background-color: $primary-l;
-          }
-
         }
-
-        .swiper-pagination-bullet-active {
-          border-color: $primary-s;
-          background-color: $primary-s;
-          color: $white;
-        }
-
       }
-
     }
-
-
-
-    // &-right {
-    //   grid-area: c4;
-    //   grid-row: 2/span 1;
-    //   @include flexC-x-center;
-    //   gap: 32px;
-
-    //   .rating {
-    //     display: grid;
-    //     grid-template-columns: repeat(3, 1fr);
-    //     gap: 32px;
-    //     padding-top: 12px;
-
-    //     .card10,
-    //     .card11,
-    //     .card12 {
-    //       display: none;
-    //     }
-    //   }
-
-    //   .catalog__pagin {
-    //     @include flex-y-center;
-    //     gap: 16px;
-
-    //     .btn {
-    //       &:nth-child(3) {
-    //         display: none;
-    //       }
-    //     }
-    //   }
-    // }
   }
 }

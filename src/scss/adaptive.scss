@@ -32,8 +32,8 @@
   }
 
   .useful-card {
-    padding-top: 232px;
     gap: 30px;
+    padding-top: 232px;
 
     .text {
       font-size: 16px;
@@ -79,7 +79,6 @@
         .nav__list {
           gap: 42px;
         }
-
       }
     }
 
@@ -157,11 +156,6 @@
       grid-template-areas:
         'b1 b2 b3'
         'b4 b5 b6';
-
-      // .card7,
-      // .card8 {
-      //   display: none
-      // }
     }
   }
 
@@ -192,28 +186,18 @@
         background-position: left 127px;
       }
 
-      .card1 {
-        background-position: left 121px;
-      }
+      $cards: '.card2''img/cat2-tab' 88%,
+        '.card3''img/cat3-tab' 100%,
+        '.card4''img/cat4-tab' 85%,
+        '.card5''img/cat5-tab' 90%;
 
-      .card2 {
-        @include image-set('../../img/cat2-tab');
-        background-size: 88%;
-      }
-
-      .card3 {
-        @include image-set('../../img/cat3-tab');
-        background-size: 100%;
-      }
-
-      .card4 {
-        @include image-set('../../img/cat4-tab');
-        background-size: 85%;
-      }
-
-      .card5 {
-        @include image-set('../../img/cat5-tab');
-        background-size: 90%;
+      @each $selector,
+      $img,
+      $imgSize in $cards {
+        #{$selector} {
+          @include image-set('../../' + $img);
+          background-size: $imgSize;
+        }
       }
     }
   }
@@ -226,6 +210,12 @@
         .swiper-wrapper {
           .useful__slide {
             .useful-card {
+              gap: 25px;
+
+              &::after {
+                height: 202px;
+              }
+
               .text {
                 min-height: 110px;
               }
@@ -251,9 +241,17 @@
 
 
   .fb {
+    padding-bottom: 70px;
+
     &__container {
       .content {
         flex-basis: 42%;
+
+        .fb__form {
+          .checkbox {
+            margin-top: -12px;
+          }
+        }
       }
 
       .picture {
@@ -288,9 +286,9 @@
       grid-template-columns: 1fr;
       row-gap: 24px;
       grid-template-areas:
-        'c2'
-        'c3'
-        'c4';
+        'catal2'
+        'catal3'
+        'catal4';
 
       .title-filter {
         display: none;
@@ -355,9 +353,9 @@
 
   // UI
   .product-card {
-    margin-bottom: 32px;
     row-gap: 32px;
     grid-template-columns: 1fr;
+    margin-bottom: 32px;
 
     .model {
       padding: 70px 0 50px;
@@ -391,13 +389,13 @@
   //SECTION
   .header {
     &__container {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-template-areas:
-        'phone phone phone phone phone phone'
-        'nS nS nS nS nS nS'
-        'logo logo logo UB UB UB'
-        'nM nM nM nM nM nM'
-        'fT fT fT fT fT fT'
+        'phone phone'
+        'nS nS'
+        'logo UB'
+        'nM nM'
+        'fT fT'
     }
 
     .logo {
@@ -444,9 +442,9 @@
 
 
   .hero {
+    padding: 80px 0;
     background: $grey-l no-repeat center / cover;
     @include image-set('../../img/hero-tabSm');
-    padding: 80px 0;
 
     &__container {
       .title2-hero {
@@ -659,11 +657,11 @@
   // UI
   // BTN-WRAP in banner
   .btn-fromMob {
-    display: block;
     position: absolute;
     bottom: -32px - 60px;
     left: 0;
     right: 0;
+    display: block;
 
     .btn {
       width: 100%;
@@ -685,16 +683,16 @@
 
   // best-card & catalog-card & product-card
   .catalog-card {
+    gap: 0;
     padding: 32px 16px 16px;
     min-height: 278px;
-    gap: 0;
 
     &::after {
       top: 18px;
       left: 15px;
+      padding-left: 18px;
       font-size: 12px;
       line-height: 15.5px;
-      padding-left: 18px;
       background-size: 13px 12px;
     }
 
@@ -716,10 +714,10 @@
 
   // categories-card
   .cat-card {
+    gap: 9px;
+    padding: 16px;
     background-position: left bottom 16px;
     background-size: 100%;
-    padding: 16px;
-    gap: 9px;
 
     .list {
       flex-direction: column;
@@ -751,8 +749,6 @@
   }
 
   .useful-card {
-    // min-height: 254px + 202px;
-
     .btn {
       padding: 17px 35px;
     }
@@ -762,9 +758,9 @@
     margin-bottom: 78px;
 
     .model {
+      gap: 16px;
       margin-top: -16px;
       padding: 20px 0 0;
-      gap: 16px;
 
       &::after {
         top: 0;
@@ -792,8 +788,8 @@
           width: 100%;
 
           &.btn-bg {
-            font-weight: 600;
             padding: 16px 30px;
+            font-weight: 600;
           }
         }
       }
@@ -859,32 +855,18 @@
   .header {
     &__container {
       gap: 16px;
-      grid-template-areas:
-        'logo logo logo logo logo logo'
-        'phone phone phone UB UB UB'
-        'nM nM nM nM nM nM'
-        'fT fT fT fT fT fT'
     }
 
     .logo {
       position: relative;
       grid-row: 1/span 1;
-      padding: 12px 0;
+      grid-column: 1/span 2;
       margin-left: 0;
+      padding: 12px 0;
+      @include bgColor();
 
       &__img {
         margin: 0 auto;
-      }
-
-      &::after {
-        content: '';
-        position: absolute;
-        z-index: -10;
-        top: 0;
-        left: -200%;
-        right: -200%;
-        bottom: 0;
-        background-color: $grey-l;
       }
     }
 
@@ -892,19 +874,14 @@
       position: relative;
       grid-row: 2/span 1;
       padding: 13px 0;
+      @include bgColor();
 
       &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -200%;
-        right: -200%;
-        bottom: 0;
         border: $bor-1;
         border-color: $grey-l;
+        background-color: transparent;
       }
     }
-
 
     .nav {
       &.nav-sec {
@@ -939,6 +916,7 @@
 
       .dropdown {
         border-radius: $r-10;
+
         &__btn {
           border-radius: $r-10;
         }
@@ -953,9 +931,9 @@
 
 
   .hero {
+    position: relative;
     margin-bottom: 32px + 60px;
     padding: 30px 0;
-    position: relative;
 
     &__container {
       .title2-hero {
@@ -974,6 +952,8 @@
 
 
   .offers {
+    padding-bottom: 73px;
+
     &__wrap {
       .offers-swiper {
         .swiper-wrapper {
@@ -1038,12 +1018,12 @@
 
 
   .banner {
+    position: relative;
     margin-bottom: 32px + 60px;
     padding: 30px 0;
+    min-height: 210px;
     @include image-set('../../img/banner-mob');
     background-position: center;
-    position: relative;
-    min-height: 210px;
 
     &__container {
       margin-left: 0;
@@ -1078,9 +1058,9 @@
 
       .card1 {
         gap: 15px;
+        padding: 32px 32px 16px 30px;
         background-position: right -10px bottom 16px;
         background-size: 120%;
-        padding: 32px 32px 16px 30px;
 
         .list {
           flex-direction: row;
@@ -1128,10 +1108,14 @@
   .useful {
     &__wrap {
       .useful-swiper {
-        .useful__slide {
-          .useful-card {
-            .text {
-              min-height: 110px;
+        .swiper-wrapper {
+          .useful__slide {
+            .useful-card {
+              gap: 29px;
+
+              .text {
+                min-height: 110px;
+              }
             }
           }
         }
@@ -1167,6 +1151,8 @@
         gap: 28px;
 
         .checkbox {
+          margin-top: -15px;
+
           &__span {
             font-size: 12px;
             line-height: 16px;
@@ -1200,29 +1186,6 @@
           grid-template-columns: repeat(2, 1fr);
           gap: 16px;
           row-gap: 24px;
-          grid-template-areas:
-            'navF1 navF2'
-            'navF3 navF4';
-
-          &-item {
-            &:nth-child(1) {
-              grid-area: navF1;
-            }
-
-            &:nth-child(2) {
-              grid-area: navF2;
-            }
-
-            &:nth-child(3) {
-              grid-area: navF3;
-              grid-row: 2/span 1;
-            }
-
-            &:nth-child(4) {
-              grid-area: navF4;
-              grid-row: 2/span 1;
-            }
-          }
         }
       }
     }
@@ -1235,15 +1198,15 @@
 
     &__content {
       .title-catalog {
+        margin-top: -9px;
         font-size: 24px;
         line-height: 31px;
-        margin-top: -9px;
       }
 
       &-left {
         .filter {
-          gap: 16px;
           display: grid;
+          gap: 16px;
           grid-template-columns: repeat(2, 1fr);
           grid-template-areas:
             'fil1 fil2'
@@ -1257,13 +1220,13 @@
             }
 
             &:nth-child(2) {
-              padding-left: 13px;
               grid-area: fil2;
+              padding-left: 13px;
             }
 
             &:nth-child(3) {
-              grid-area: fil3;
               grid-row: 2/span 1;
+              grid-area: fil3;
             }
           }
         }
@@ -1271,8 +1234,8 @@
 
       &-right {
         .rating {
-          padding-top: 5px;
           gap: 16px;
+          padding-top: 5px;
         }
 
         .catalog__pagin {
@@ -1325,8 +1288,8 @@
 
           &.item3 {
             .title3 {
-              font-size: 14px;
               margin-bottom: 7px;
+              font-size: 14px;
             }
 
             .edge-list {

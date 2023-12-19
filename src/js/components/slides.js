@@ -1,55 +1,29 @@
-// CATALOG
-let catalogSwiper = new Swiper('.catalog-swiper', {
-  // direction: 'horizontal', // без изменений
-  // slideClass: 'catalog__slide', // без изменений
+// SWIPERS: OFFERS & USEFUL
+let commonProperties = {
   grabCursor: true,
-  slidesPerView: 3,
-  slidesPerGroup: 3,
   spaceBetween: 32,
 
-  grid: {
-    rows: 3,
-    fill: 'row',
+  keyboard: {
+    enabled: true,
   },
-
-  pagination: {
-    el: ".catalog__pagination",
-    clickable: true,
-    renderBullet: function (index, className) {
-      return '<span class="' + className + '">' + (index + 1) + '</span>';
-    },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
-})
-
-
-
+  a11y: {
+    paginationBulletMessage: 'Перейти к слайду {{index}}',
+  },
+}
 
 
 // OFFERS
 let offersSwiper = new Swiper('.offers-swiper', {
-  grabCursor: true,
-  spaceBetween: 32,
-
-  // доступность
-  a11y: {
-    paginationBulletMessage: 'Перейти к слайду {{index}}',
-  },
-
-  // управлять с клавиатуры стрелками
-  keyboard: {
-    enabled: true,
-  },
+  ...commonProperties, // объеденили объекты
 
   mousewheel: {
     sensitivity: 10, // чувствительность колеса мыши
     eventsTarget: '.offers-swiper', // класс обьекта, на котором сработает событие прокрутки мыши
   },
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
   breakpoints: {
     651: {
       slidesPerView: 2,
@@ -62,35 +36,16 @@ let offersSwiper = new Swiper('.offers-swiper', {
     },
   },
 })
-// на разрешении 320px - 0px свайпер не работает
-window.matchMedia('(min-width: 651px)').matches || offersSwiper.destroy();
-
-
-
 
 
 // USEFUL
 let usefulSwiper = new Swiper('.useful-swiper', {
-  grabCursor: true,
-  spaceBetween: 32,
+  ...commonProperties,
   slidesPerGroup: 1,
-
-  a11y: {
-    paginationBulletMessage: 'Перейти к слайду {{index}}',
-  },
-
-  keyboard: {
-    enabled: true,
-  },
 
   mousewheel: {
     sensitivity: 10,
     eventsTarget: '.useful-swiper',
-  },
-
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
   },
 
   breakpoints: {
@@ -105,13 +60,11 @@ let usefulSwiper = new Swiper('.useful-swiper', {
     },
   },
 })
-window.matchMedia('(min-width: 651px)').matches || usefulSwiper.destroy();
 
 
-
-
-
-
-
+if(window.matchMedia('(max-width: 651px)').matches) { // (matches вернет true, если состояние документа 0-650px)
+  offersSwiper.destroy(); // 0-650px свайпер не работает
+  usefulSwiper.destroy();
+}
 
 

@@ -2,27 +2,22 @@
   padding-bottom: 70px;
 
   .rating {
-    margin-bottom: 32px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     grid-template-areas:
       'b1 b2 b3 b4';
+    margin-bottom: 32px;
 
-    .card1 {
-      grid-area: b1;
-    }
-
-    .card2 {
-      grid-area: b2;
-    }
-
-    .card3 {
-      grid-area: b3;
-    }
-
-    .card4 {
-      grid-area: b4;
+    @each $selector,
+    $gridName in ('.card1': b1,
+      '.card2': b2,
+      '.card3': b3,
+      '.card4': b4,
+    ) {
+      #{$selector} {
+        grid-area: $gridName;
+      }
     }
   }
 
@@ -31,4 +26,3 @@
     margin: 0 auto;
   }
 }
-

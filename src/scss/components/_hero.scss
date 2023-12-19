@@ -1,12 +1,12 @@
 .hero {
+  padding: 80px 0;
   background: $grey-l no-repeat center / cover;
   @include image-set('../../img/hero');
-  padding: 80px 0;
 
   &__container {
     .title2-hero {
-      width: 39%;
       margin-bottom: 49px;
+      width: 39%;
     }
 
     .btn {

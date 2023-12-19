@@ -2,15 +2,6 @@
 @import "../mixins.scss";
 @import "../fonts.scss";
 
-.ui-kit {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  background-color: rgb(205, 255, 255);
-}
-
-
 
 // SVG
 .icon {
@@ -59,20 +50,6 @@
 
 }
 
-.arrow-svg {
-  .circle {
-    stroke: $primary;
-    fill: transparent;
-    transition: $tr;
-    transition-property: stroke, fill;
-  }
-
-  .path {
-    stroke: $primary;
-    transition: stroke $tr;
-  }
-}
-
 .arrow-disab {
   cursor: auto;
 
@@ -84,6 +61,20 @@
     .path {
       stroke: $grey;
     }
+  }
+}
+
+.arrow-svg {
+  .circle {
+    fill: transparent;
+    stroke: $primary;
+    transition: $tr;
+    transition-property: stroke, fill;
+  }
+
+  .path {
+    stroke: $primary;
+    transition: stroke $tr;
   }
 }
 
@@ -137,10 +128,10 @@
 
 // BUTTON
 .btn {
-  font-size: 16px;
-  line-height: 16px;
   border: $bor-2;
   border-radius: $r-10;
+  font-size: 16px;
+  line-height: 16px;
   transition: $tr;
   transition-property: background-color, border-color, color;
 
@@ -153,16 +144,17 @@
 
 .btn-stroke {
   padding: 19px 35px;
+  border-color: $primary;
   font-weight: 600;
   color: $primary;
-  border-color: $primary;
 
-  &:hover:not(:active) {
+  // &:hover:not(:active) {
+  &.hover.touch:not(:active) {
     color: $white;
     background-color: $primary;
   }
 
-  &:focus-visible:not(:hover):not(:active) {
+  &:focus-visible:not(.touch):not(:active) {
     border-color: $primary;
     color: $white;
     background-color: $primary-l;
@@ -186,14 +178,14 @@
 }
 
 .btn-disab {
-  cursor: auto;
   padding: 22px 47px;
-  font: 700 16px / 16px $font-f;
-  font-weight: 700;
   border: $bor-2;
   border-radius: $r-10;
+  font: 700 16px / 16px $font-f;
+  font-weight: 700;
   color: $grey;
   background-color: $grey-md;
+  cursor: auto;
 }
 
 .btn-pagin {
@@ -216,7 +208,6 @@
   }
 }
 
-
 .swiper-arrows {
   @include flex-y-center;
   gap: 30px;
@@ -226,10 +217,10 @@
     position: relative;
     width: 32px;
     height: 32px;
-    background-color: transparent;
     border: $bor-2;
     border-color: $primary;
     border-radius: 50%;
+    background-color: transparent;
     transition: $tr;
     transition-property: background-color, border-color;
 
@@ -266,8 +257,8 @@
     }
 
     &:active {
-      background-color: $primary-s;
       border-color: $primary-s;
+      background-color: $primary-s;
 
       &::before {
         border-color: $white;
@@ -275,8 +266,8 @@
     }
 
     &.swiper-button-disabled {
-      opacity: 1;
       border-color: $grey;
+      opacity: 1;
 
       &::before {
         border-color: $grey;
@@ -301,12 +292,12 @@
   }
 }
 
-
-
 // BTN-WRAP in hero & banner
 .btn-fromMob {
   display: none;
 }
+
+
 
 
 
@@ -320,111 +311,6 @@
   color: $black;
   transition: $tr;
   transition-property: background-color, border-color;
-}
-
-.input-cost {
-  padding: 4px 13px;
-  border: $bor-1;
-  border-color: $grey;
-  border-radius: $r-3;
-  width: 86px;
-
-  // убрать стрелки с input type="number"
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-
-
-  &::placeholder {
-    color: $grey-s;
-  }
-
-  &:hover:not(:active) {
-    border-color: $primary;
-  }
-
-  &:focus-visible:not(:hover):not(:active) {
-    border-color: $primary;
-    background-color: $pink-v;
-  }
-
-  &:active {
-    border-color: $primary-s;
-  }
-}
-
-
-
-
-.form-top {
-  @include flex-y-center;
-  justify-content: flex-start;
-  padding: 9px 32px;
-  border-radius: $r-10;
-  background-color: $grey-l;
-  transition: $tr;
-  transition-property: background-color, border-color;
-
-
-  .search-svg {
-    fill: $grey;
-    margin-right: 7px;
-    transition: fill $tr;
-  }
-
-  .input-top {
-    line-height: 40px;
-    background-color: $grey-l;
-    width: 100%;
-
-    &::placeholder {
-      color: $grey;
-    }
-  }
-
-  &:hover:not(:active) {
-    background-color: $grey-md;
-
-    .input-top {
-      background-color: $grey-md;
-    }
-  }
-
-  &:focus-within:not(:hover):not(:active) {
-    border-color: $primary;
-    background-color: $pink-l;
-
-    .input-top {
-      border-color: $primary;
-      background-color: $pink-l;
-    }
-  }
-
-  &:active {
-    .search-svg {
-      fill: $primary;
-    }
-  }
-
-  button {
-    margin-left: auto;
-    width: 32px;
-    height: 32px;
-
-    &:hover {
-      @include arrow-svgH;
-    }
-
-    &:focus-visible:not(:active) {
-      @include arrow-svgF;
-    }
-
-    &:active {
-      @include arrow-svgA;
-    }
-  }
-
 }
 
 .checkbox {
@@ -468,8 +354,6 @@
     }
   }
 }
-
-
 
 
 
@@ -524,10 +408,10 @@
 }
 
 .to-link {
-  font: 700 16px / 19px $font-f;
-  color: $primary;
   @include flex-y-center;
   gap: 5px;
+  font: 700 16px / 19px $font-f;
+  color: $primary;
 
   &__text {
     position: relative;
@@ -636,11 +520,11 @@
 
   &__item {
     &-link {
-      @include clickZone-3;
       position: relative;
       @include flex-xy-center;
       height: 30px;
-      @include iconState();
+      @include iconState;
+      @include clickZone-3;
     }
   }
 }
@@ -651,10 +535,10 @@
 
   &__item {
     .userBasket-link {
-      @include clickZone-3;
       position: relative;
       @include flex-xy-center;
-      @include iconState();
+      @include iconState;
+      @include clickZone-3;
 
       &:hover {
         .icon {
@@ -689,15 +573,15 @@
           .basket-count {
             content: '';
             position: absolute;
-            @include flex-xy-center;
             top: 5px;
             left: 0;
+            @include flex-xy-center;
+            border-radius: 100%;
             width: 14px;
             height: 15px;
-            border-radius: 100%;
-            background-color: $orange;
             color: $white;
             font: 700 10px / 10px $font-f;
+            background-color: $orange;
           }
         }
       }
@@ -735,22 +619,22 @@
 .catalog-card {
   justify-content: flex-end;
   gap: 16px;
-  background-color: $grey-l;
   border-radius: $r-10;
+  background-color: $grey-l;
 
   &::after {
     content: '!';
   }
 
   .picture {
-    width: 100%;
     @include flex-xy-center;
+    width: 100%;
   }
 }
 
 .disc-card {
-  @include discount;
   padding: 62px 20px 30px;
+  @include discount;
 
   .picture {
     height: 100%;
@@ -763,15 +647,15 @@
   &__wrap-text {
     @include flexC;
     gap: 21px;
-    max-width: 235px;
     padding-left: 10px;
+    max-width: 235px;
 
     .price {
       position: relative;
-      @include priceInitial;
       font-size: 18px;
       line-height: 23.5px;
       color: $orange;
+      @include priceInitial;
 
       &::after {
         content: '00 000 руб';
@@ -790,9 +674,9 @@
 }
 
 .catalog-card {
-  @include starReting;
-  min-height: 420px;
   padding: 30px 15px;
+  min-height: 420px;
+  @include starReting;
 
   &__wrap-text {
     @include flexC;
@@ -807,16 +691,16 @@
 }
 
 .cat-card {
-  min-height: 200px;
-  @include bgColor;
   gap: 14px;
   padding: 30px;
+  min-height: 200px;
   background: url('../../img/cat2.png') no-repeat left center / contain;
+  @include bgColor;
 
   &::after {
+    border-radius: $r-10;
     left: 0;
     right: 0;
-    border-radius: $r-10;
   }
 
   .list {
@@ -825,8 +709,8 @@
   }
 
   .card-wrap {
-    height: 100%;
     @include flexC;
+    height: 100%;
 
     .title3 {
       line-height: 32.5px;
@@ -839,12 +723,11 @@
 }
 
 .useful-card {
-  max-width: 624px;
-  background: url('../../img/useful1.jpg') no-repeat top center / contain;
   @include flexC;
   gap: 38px;
   padding: 456px 30px 30px 30px;
   border-radius: $r-10;
+  max-width: 624px;
   background-color: $grey-l;
 
   .text {
@@ -858,11 +741,11 @@
 }
 
 .product-card {
-  margin-bottom: 82px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
   row-gap: 113px;
+  margin-bottom: 82px;
 
   .picture {
     align-self: center;
@@ -870,10 +753,10 @@
 
   .model {
     position: relative;
-    @include starReting;
     @include flexC;
     gap: 21px;
     padding-top: 21px;
+    @include starReting;
 
     &::after {
       content: '!';
@@ -948,10 +831,10 @@
 
         &__main {
           position: relative;
-          white-space: nowrap;
-          overflow: hidden;
           flex-basis: 52.5%;
           color: $grey;
+          white-space: nowrap;
+          overflow: hidden;
 
           &::after {
             content: '. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .';
@@ -969,45 +852,26 @@
 
 // automatic installation rating for 12 cards
 .rating {
-  .card1 {
-    &::after {
-      content: '5,0';
+
+  @each $selector,
+  $starReting in ('.card1' :'5,0',
+    '.card2' :'4.9',
+    '.card3' :'4,8',
+    '.card4' :'4,8',
+    '.card5' :'4,8',
+    '.card6' :'4,8',
+    '.card7' :'4,8',
+    '.card8' :'4,7',
+    '.card9' :'4,7',
+    '.card10': '4.6',
+    '.card11': '4.5',
+    '.card12': '4.5',
+  ) {
+    #{$selector} {
+      &::after {
+        content: $starReting;
+      }
     }
   }
 
-  .card2 {
-    &::after {
-      content: '4,9';
-    }
-  }
-
-  .card3,
-  .card4,
-  .card5,
-  .card6,
-  .card7 {
-    &::after {
-      content: '4,8';
-    }
-  }
-
-  .card8,
-  .card9 {
-    &::after {
-      content: '4,7';
-    }
-  }
-
-  .card11 {
-    &::after {
-      content: '4,6';
-    }
-  }
-
-  .card10,
-  .card12 {
-    &::after {
-      content: '4,5';
-    }
-  }
 }
