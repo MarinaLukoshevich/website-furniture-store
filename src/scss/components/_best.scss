@@ -24,5 +24,7 @@
   .open-more-btn {
     display: block;
     margin: 0 auto;
+    transform: scale(1);
+    transition:  $tr;
   }
 }

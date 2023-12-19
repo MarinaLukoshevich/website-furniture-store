@@ -40,11 +40,11 @@
               color: $grey;
             }
 
-            &:hover:not(:active) {
+            @include hover {
               background-color: $grey-md;
             }
 
-            &:focus-visible:not(:hover):not(:active):not(.just-validate-success-field) {
+            &.focus-visible:not(:hover):not(:active):not(.just-validate-success-field) {
               border-color: $primary;
               background-color: $pink-l;
             }
@@ -78,12 +78,12 @@
               transition: $tr;
               transition-property: color, border-color;
 
-              &:hover {
+              @include hover {
                 border-color: $primary-l;
                 color: $primary-l;
               }
 
-              &:focus-visible:not(:hover):not(:active) {
+              &.focus-visible:not(:hover):not(:active) {
                 border-color: $black;
               }
 

@@ -22,13 +22,13 @@
 
 // icon::hov,foc,active (close,soc,user,basket)
 @mixin iconState() {
-  &:hover {
+  @include hover {
     .icon {
       fill: $primary;
     }
   }
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     &:after {
       opacity: 1;
     }
@@ -148,13 +148,12 @@
   font-weight: 600;
   color: $primary;
 
-  // &:hover:not(:active) {
-  &.hover.touch:not(:active) {
+  @include hover {
     color: $white;
     background-color: $primary;
   }
 
-  &:focus-visible:not(.touch):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     border-color: $primary;
     color: $white;
     background-color: $primary-l;
@@ -167,11 +166,11 @@
   color: $white;
   background-color: $primary;
 
-  &:hover:not(:active) {
+  @include hover {
     background-color: $primary-l;
   }
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     border-color: $primary-s;
     background-color: $primary-l;
   }
@@ -199,7 +198,7 @@
   @include iconState();
   transition: background-color $tr;
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     background-color: $pink-v;
 
     .icon {
@@ -240,7 +239,7 @@
       transition: $tr border-color;
     }
 
-    &:hover {
+    @include hover {
       background-color: $primary;
 
       &::before {
@@ -248,7 +247,7 @@
       }
     }
 
-    &:focus-visible:not(:active):not(:hover) {
+    &.focus-visible:not(:active):not(:hover) {
       background-color: $primary-l;
 
       &::before {
@@ -325,11 +324,13 @@
       background-image: url('../../img/checkbox-on.svg');
     }
 
-    &:hover+.checkbox__span {
-      color: $grey;
+    @include hover {
+      &+.checkbox__span {
+        color: $grey;
+      }
     }
 
-    &:focus-visible:not(:hover)+.checkbox__span {
+    &.focus-visible:not(:hover)+.checkbox__span {
       color: $primary;
     }
   }
@@ -369,7 +370,7 @@
 .to-link {
   transition: color $tr;
 
-  &:hover {
+  @include hover {
     color: $primary;
   }
 
@@ -383,7 +384,7 @@
   position: relative;
   @include clickZoneX-7;
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     &::after {
       opacity: 1;
     }
@@ -393,7 +394,7 @@
 .sec-link {
   color: $grey;
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     color: $primary-s;
   }
 }
@@ -402,7 +403,7 @@
   font-size: 16px;
   line-height: 22px;
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     color: $black;
   }
 }
@@ -423,8 +424,9 @@
     height: 22px;
   }
 
-  &:hover,
-  &:focus-visible:not(:active) {
+  @include hover {
+    @include arrow-svgH;
+
     .to-link__text {
       &::after {
         background-color: $primary;
@@ -432,15 +434,18 @@
     }
   }
 
-  &:hover {
-    @include arrow-svgH;
-  }
-
-  &:focus-visible:not(:active) {
+  &.focus-visible:not(:active) {
     @include arrow-svgF;
+
+    .to-link__text {
+      &::after {
+        background-color: $primary;
+      }
+    }
   }
 
   &:active {
+    @include arrow-svgA;
     color: $primary-s;
 
     .to-link__text {
@@ -448,8 +453,6 @@
         background-color: $primary-s;
       }
     }
-
-    @include arrow-svgA;
   }
 }
 
@@ -465,7 +468,7 @@
     transition: fill $tr;
   }
 
-  &:hover {
+  @include hover {
     color: $orange-l;
 
     .phone-svg {
@@ -473,7 +476,7 @@
     }
   }
 
-  &:focus-visible:not(:hover):not(:active) {
+  &.focus-visible:not(:hover):not(:active) {
     color: $orange;
     background-color: $bone;
 
@@ -498,8 +501,11 @@
   color: $primary;
   transition: color $tr;
 
-  &:hover,
-  &:focus-visible {
+  @include hover {
+    color: $primary-l;
+  }
+
+  &.focus-visible {
     color: $primary-l;
   }
 
@@ -540,7 +546,7 @@
       @include iconState;
       @include clickZone-3;
 
-      &:hover {
+      @include hover {
         .icon {
           fill: $primary-l;
         }

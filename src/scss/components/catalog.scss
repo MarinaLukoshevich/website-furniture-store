@@ -78,11 +78,11 @@
                   color: $grey-s;
                 }
 
-                &:hover:not(:active) {
+                @include hover {
                   border-color: $primary;
                 }
 
-                &:focus-visible:not(:hover):not(:active) {
+                &.focus-visible:not(:hover):not(:active) {
                   border-color: $primary;
                   background-color: $pink-v;
                 }

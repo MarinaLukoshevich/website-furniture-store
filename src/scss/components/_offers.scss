@@ -5,37 +5,6 @@
     @include flex-center-space;
   }
 
-  .buttonH {
-    border: $bor-2;
-    border-radius: $r-10;
-    border-color: $primary;
-    padding: 20px;
-    transition: $tr;
-    transition-property: background-color, border-color, color;
-
-    // &:hover:not(:active) {
-    //   color: $white;
-    //   background-color: $primary;
-    // }
-
-    &:focus-visible:not(:hover):not(:active) {
-      border-color: $primary;
-      color: $white;
-      background-color: $primary-l;
-    }
-
-    &:active {
-      border-color: $primary-s;
-      color: $white;
-      background-color: $primary-s;
-    }
-
-    &.hover.touch {
-      color: green;
-      background-color: red;
-    }
-
-  }
 
   &__wrap {
     .offers-swiper {

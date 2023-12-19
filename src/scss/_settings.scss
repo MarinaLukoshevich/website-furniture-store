@@ -8,13 +8,10 @@ html {
   box-sizing: inherit;
 }
 
-*:focus-visible {
-  outline: 0;
+*:focus-visible,
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
 }
-
-// .js-focus-visible :focus:not(.focus-visible) {
-//   outline: none;
-// }
 
 img {
   height: auto;

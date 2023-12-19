@@ -91,7 +91,7 @@
         }
       }
 
-      &:hover:not(:active) {
+      @include hover {
         background-color: $grey-md;
 
         .input-top {
@@ -120,11 +120,11 @@
         width: 32px;
         height: 32px;
 
-        &:hover {
+        @include hover {
           @include arrow-svgH;
         }
 
-        &:focus-visible:not(:active) {
+        &.focus-visible:not(:active) {
           @include arrow-svgF;
         }
 
@@ -158,8 +158,13 @@
         width: 100%;
         min-height: 60px;
 
-        &:hover,
-        &:focus-visible,
+        @include hover {
+          .drop-arrow-svg {
+            fill: $white;
+          }
+        }
+
+        &.focus-visible,
         &:active {
           .drop-arrow-svg {
             fill: $white;
