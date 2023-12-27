@@ -1,5 +1,5 @@
 # интернет-магазин мебели 
-![hero-section](resources/hero-demo.webp)
+![hero-section](src/resources/hero-demo.webp)
 ## О проекте
 
 Сайт «SitDownPls» - интернет-магазин мебели
@@ -23,7 +23,7 @@
    - с использованием компонентов  
 1. Плавный юзабилити, работающий функционал (выпадающий список, валидация формы, слайдеры):
      
-   ![demoFunctional]()
+   ![demoFunctional](https://github.com/MarinaLukoshevich/website-furniture-store/blob/master/src/resources/demo-website.gif)
 
 1. БЭМ-именование классов, соблюдение CodeStyle
 1. Оптимизация процесса загрузки
