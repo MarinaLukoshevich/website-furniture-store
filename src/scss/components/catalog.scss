@@ -1,0 +1,165 @@
+@import "../vars";
+@import "../mixins";
+
+.catalog {
+  padding-bottom: 70px;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    row-gap: 12px;
+    grid-template-areas:
+      'catal1 catal2 catal2 catal2'
+      'catal3 catal4 catal4 catal4';
+
+    @each $selector,
+    $gridName in ('.title-filter': catal1,
+      '.title-catalog': catal2,
+      '.catalog__content-left': catal3,
+      '.catalog__content-right': catal4,
+    ) {
+      #{$selector} {
+        grid-area: $gridName;
+      }
+    }
+
+    .title-filter {
+      font: 400 18px / 23.5px $font-f;
+    }
+
+    &-left {
+      grid-row: 2/span 1;
+      @include flexC;
+      gap: 32px;
+
+      .filter {
+        @include flexC;
+        gap: 26px;
+
+        &__item {
+          .title4 {
+            margin-bottom: 10px;
+            line-height: 21px;
+            color: $grey-s;
+          }
+
+          ul {
+            @include flexC;
+            gap: 11px;
+          }
+
+          &-price {
+            .title4 {
+              margin-bottom: 5px;
+            }
+
+            ul {
+              @include flex-y-center;
+
+              .price-label {
+                margin-right: 9px;
+              }
+
+              .input-cost {
+                padding: 4px 13px;
+                border: $bor-1;
+                border-color: $grey;
+                border-radius: $r-3;
+                width: 86px;
+
+                // убрать стрелки с input type="number"
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                  -webkit-appearance: none;
+                }
+
+                &::placeholder {
+                  color: $grey-s;
+                }
+
+                @include hover {
+                  border-color: $primary;
+                }
+
+                &.focus-visible:not(:hover):not(:active) {
+                  border-color: $primary;
+                  background-color: $pink-v;
+                }
+
+                &:active {
+                  border-color: $primary-s;
+                }
+              }
+
+            }
+          }
+        }
+      }
+
+
+      .catalog__banner {
+        margin-top: auto;
+        margin-bottom: 32px + 34px;
+        border-radius: $r-10;
+        overflow: hidden;
+
+        .picture {
+          display: flex;
+        }
+
+        &-content {
+          padding: 30px;
+          background-color: $black;
+
+          .text-wrap {
+            margin-bottom: 12px;
+            max-width: 200px;
+
+            .title2-banner {
+              font-size: 24px;
+              line-height: 32px;
+            }
+
+            &__descr {
+              font-size: 16px;
+              line-height: 22px;
+              color: $grey;
+            }
+          }
+        }
+      }
+    }
+
+
+    &-right {
+      grid-row: 2/span 1;
+      @include flexC-x-center;
+      gap: 32px;
+
+      .rating {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        padding-top: 12px;
+
+        .card10,
+        .card11,
+        .card12 {
+          display: none;
+        }
+      }
+
+      .catalog__pagin {
+        @include flex-y-center;
+        gap: 16px;
+
+        .btn {
+          &:nth-child(3) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,199 @@
+@import "./ui-components";
+
+.header {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    grid-template-areas:
+      'phone phone nS nS nS nS nS nS nS nS nS nS'
+      'logo logo nM nM nM nM nM nM nM nM nM nM'
+      'fT fT fT fT fT fT fT fT fT fT UB UB'
+  }
+
+  @each $item,
+  $gridName in ('.logo': logo,
+    '.phone-wrap': phone,
+    '.nav-sec': nS,
+    '.nav-main': nM,
+    '.header__form': fT,
+    '.userBasket': UB,
+  ) {
+    #{$item} {
+      grid-area: $gridName;
+    }
+  }
+
+  .logo {
+    @include flex-y-center;
+    grid-row: 2/span 1;
+  }
+
+  .phone-wrap {
+    grid-row: 1/span 1;
+    @include flex-y-center;
+  }
+
+  .nav {
+    @include flex-y-center;
+    justify-self: flex-end;
+
+    &__list {
+      @include flex-y-center;
+    }
+
+    &.nav-sec {
+      position: relative;
+      padding: 18px 0;
+      color: $grey;
+      @include bgColor;
+
+      .nav__list {
+        gap: 64px;
+      }
+    }
+
+    &.nav-main {
+
+      .nav__list {
+        gap: 93px;
+      }
+    }
+  }
+
+  .header__form {
+    position: relative;
+    grid-row: 3/span 1;
+    margin-bottom: 32px;
+
+    .form-top {
+      @include flex-y-center;
+      justify-content: flex-start;
+      padding: 9px 32px;
+      border-radius: $r-10;
+      background-color: $grey-l;
+      transition: $tr;
+      transition-property: background-color, border-color;
+
+      .search-svg {
+        margin-right: 7px;
+        fill: $grey;
+        transition: fill $tr;
+      }
+
+      .input-top {
+        width: 100%;
+        line-height: 40px;
+        background-color: $grey-l;
+
+        &::placeholder {
+          color: $grey;
+        }
+      }
+
+      @include hover {
+        background-color: $grey-md;
+
+        .input-top {
+          background-color: $grey-md;
+        }
+      }
+
+      &:focus-within:not(:hover):not(:active) {
+        border-color: $primary;
+        background-color: $pink-l;
+
+        .input-top {
+          border-color: $primary;
+          background-color: $pink-l;
+        }
+      }
+
+      &:active {
+        .search-svg {
+          fill: $primary;
+        }
+      }
+
+      button {
+        margin-left: auto;
+        width: 32px;
+        height: 32px;
+
+        @include hover {
+          @include arrow-svgH;
+        }
+
+        &.focus-visible:not(:active) {
+          @include arrow-svgF;
+        }
+
+        &:active {
+          @include arrow-svgA;
+        }
+      }
+
+    }
+
+    .dropdown {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      width: 300px;
+      border: $bor-2;
+      border-color: $grey-l;
+      border-radius: 0 $r-10 $r-10 $r-10;
+      background-color: $white;
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: $tr;
+      transition-property: opacity, transform, z-index;
+
+      &__btn {
+        @include flex-center-space;
+        gap: 10px;
+        padding: 20px 32px;
+        border-radius: 0 $r-10 $r-10 0;
+        width: 100%;
+        min-height: 60px;
+
+        @include hover {
+          .drop-arrow-svg {
+            fill: $white;
+          }
+        }
+
+        &.focus-visible,
+        &:active {
+          .drop-arrow-svg {
+            fill: $white;
+          }
+        }
+      }
+
+      &__list {
+        padding: 22px 30px;
+        width: 85%;
+        column-count: 2;
+
+        &-item {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+
+    .dropdown--active {
+      z-index: 10;
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .userBasket {
+    justify-self: flex-end;
+    margin-bottom: 32px;
+  }
+}

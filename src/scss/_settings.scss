@@ -1,0 +1,134 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+*:focus-visible,
+.js-focus-visible :focus:not(.focus-visible) {
+  outline: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+.page {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  font: 400 14px / 14px $font-f;
+  color: $black;
+}
+
+.page__body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+// для отключ горизонт скролл
+.site-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: $padX-desk;
+  max-width: $max-w-desk;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn-reset {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.input-reset {
+  border: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
+
+.title1 {
+  position: fixed;
+  transform: scale(0);
+}
+
+.title2 {
+  font: 400 32px / 32px $font-f;
+  margin-bottom: 24px;
+}
+
+.title2-hero {
+  font: 700 48px / 65px $font-f;
+  color: $grey;
+}
+
+.title2-banner {
+  font: 900 60px / 72px "PlayfairDisplay-Black";
+  color: $gold;
+}
+
+.title3 {
+  font: 400 24px / 31px $font-f;
+}
+
+.title4 {
+  font: 600 16px / 16px $font-f;
+}
+
+
+// .visually-hidden {
+//   position: absolute;
+//   overflow: hidden;
+//   margin: -1px;
+//   border: 0;
+//   padding: 0;
+//   width: 1px;
+//   height: 1px;
+//   clip: rect(0 0 0 0);
+// }
+
+
+// .stop-scroll {
+//   overflow: hidden;
+// }

@@ -1,0 +1,16 @@
+.hero {
+  padding: 80px 0;
+  background: $grey-l no-repeat center / cover;
+  @include image-set('../../img/hero');
+
+  &__container {
+    .title2-hero {
+      margin-bottom: 49px;
+      width: 39%;
+    }
+
+    .btn {
+      padding: 22px 50px;
+    }
+  }
+}

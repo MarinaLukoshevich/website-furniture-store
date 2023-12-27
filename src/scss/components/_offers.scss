@@ -1,0 +1,160 @@
+.offers {
+  padding: 70px 0;
+
+  .titleArrows {
+    @include flex-center-space;
+  }
+
+
+  &__wrap {
+    .offers-swiper {
+      .swiper-wrapper {
+        .offers-slide {
+          width: 23%;
+
+          &:nth-child(2) {
+            width: 48.5%;
+          }
+
+          .disc-card {
+            .picture {
+              min-height: 218px;
+            }
+
+            &.card-draw {
+              .picture {
+                min-height: 250px;
+              }
+            }
+          }
+
+          $cards: '.card1''-9 000''24 000 руб' o1,
+            '.card2''-10 000''32 990 руб' o2,
+            '.card3''-600''1 890 руб' o3,
+            '.card4''-300''990 руб',
+            '.card5''-10 000''32 990 руб',
+            '.card6''-700''2 090 руб';
+
+          @each $selector,
+          $discount,
+          $priceInitial,
+          $gridName in $cards {
+            #{$selector} {
+              grid-area: $gridName;
+
+              &::after {
+                content: $discount;
+              }
+
+              .price {
+                &::after {
+                  content: $priceInitial;
+                }
+              }
+
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+
+
+  // .discount {
+  //   display: grid;
+  //   grid-template-columns: repeat(4, 1fr);
+  //   gap: 32px;
+  //   grid-template-areas:
+  //     'o1 o2 o2 o3';
+
+
+  //   .disc-card {
+  //     &.card1 {
+  //       grid-area: o1;
+
+  //       &::after {
+  //         content: '-9 000';
+  //       }
+
+  //       .price {
+  //         &::after {
+  //           content: '24 000 руб';
+  //         }
+  //       }
+
+  //     }
+
+  //     &.card2 {
+  //       grid-area: o2;
+
+  //       &::after {
+  //         content: '-10 000';
+  //       }
+
+  //       .price {
+  //         &::after {
+  //           content: '32 990 руб';
+  //         }
+  //       }
+  //     }
+
+  //     &.card3 {
+  //       grid-area: o3;
+
+  //       &::after {
+  //         content: '-600';
+  //       }
+
+  //       .price {
+  //         &::after {
+  //           content: '1 890 руб';
+  //         }
+  //       }
+  //     }
+
+  //     &.card4 {
+  //       &::after {
+  //         content: '-300';
+  //       }
+
+  //       .price {
+  //         &::after {
+  //           content: '990 руб';
+  //         }
+  //       }
+  //     }
+
+  //     &.card5 {
+  //       &::after {
+  //         content: '-10 000';
+  //       }
+
+  //       .price {
+  //         &::after {
+  //           content: '32 990 руб';
+  //         }
+  //       }
+  //     }
+
+  //     &.card6 {
+  //       &::after {
+  //         content: '-700';
+  //       }
+
+  //       .price {
+  //         &::after {
+  //           content: '2 090 руб';
+  //         }
+  //       }
+  //     }
+
+  //     &.card4,
+  //     &.card5,
+  //     &.card6 {
+  //       display: none;
+  //     }
+  //   }
+  // }
+}

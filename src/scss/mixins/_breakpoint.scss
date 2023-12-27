@@ -1,0 +1,35 @@
+@import "../vars";
+
+
+@mixin tablet {
+  @media (max-width: (1200px)) {
+  .page__body {
+      .container {
+        padding: $padX-tab;
+      }
+      @content;
+    }
+  }
+}
+
+@mixin tabletSm {
+  @media (max-width: (1000px)) {
+  .page__body {
+      .container {
+        padding: $padX-tabSm;
+      }
+      @content;
+    }
+  }
+}
+
+@mixin mob {
+  @media (max-width: (650px)) {
+  .page__body {
+      .container {
+        padding: $padX-mob;
+      }
+      @content;
+    }
+  }
+}

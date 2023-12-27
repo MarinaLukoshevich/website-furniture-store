@@ -1,0 +1,30 @@
+.best {
+  padding-bottom: 70px;
+
+  .rating {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    grid-template-areas:
+      'b1 b2 b3 b4';
+    margin-bottom: 32px;
+
+    @each $selector,
+    $gridName in ('.card1': b1,
+      '.card2': b2,
+      '.card3': b3,
+      '.card4': b4,
+    ) {
+      #{$selector} {
+        grid-area: $gridName;
+      }
+    }
+  }
+
+  .open-more-btn {
+    display: block;
+    margin: 0 auto;
+    transform: scale(1);
+    transition:  $tr;
+  }
+}

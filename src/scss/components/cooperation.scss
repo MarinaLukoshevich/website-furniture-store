@@ -1,0 +1,96 @@
+@import "../vars";
+@import "../mixins";
+
+.cooperat {
+  padding-bottom: 70px;
+
+  .descr {
+    font: 400 16px / 29px $font-f;
+    color: $grey-s;
+  }
+
+  &__content {
+    @include flexC;
+    gap: 34px;
+    max-width: 840px;
+
+    .title2 {
+      margin-bottom: 0;
+    }
+
+    .main-list {
+      @include flexC;
+      gap: 32px;
+
+      &__item {
+        .title3 {
+          margin-bottom: 14px;
+        }
+
+        .sec-list {
+          @include flexC;
+          gap: 12px;
+        }
+
+        .give-list {
+          &__item {
+            .descr {
+              padding-left: 37px;
+              line-height: 24px;
+              background: no-repeat left top / 25px;
+
+              &.descr1 {
+                background-image: url('../../img/give-you1.svg');
+              }
+
+              &.descr2 {
+                background-image: url('../../img/give-you2.svg');
+              }
+
+              &.descr3 {
+                background-image: url('../../img/give-you3.svg');
+              }
+            }
+          }
+        }
+
+        .edge-list {
+          &__item {
+            &-title {
+              display: block;
+              margin-bottom: 12px;
+              line-height: 22px;
+              color: $orange;
+            }
+          }
+        }
+
+        .guarantee-list {
+          &__item {
+            display: flex;
+            gap: 12px;
+
+            &-number {
+              font: 400 16px / 29px $font-f;
+              color: $orange;
+            }
+          }
+        }
+
+        &.item2,
+        &.item5 {
+          max-width: 624px;
+        }
+
+        &.item5 {
+          .item5__descr {
+            font: 400 24px / 36px $font-f;
+            padding: 22px 0 22px 109px;
+            background: url('../../img/pen.png') no-repeat left center / 77px 116px;
+          }
+        }
+
+      }
+    }
+  }
+}

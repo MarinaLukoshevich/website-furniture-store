@@ -1,0 +1,23 @@
+.banner {
+  padding: 150px 0;
+  background: $grey-l no-repeat center / cover;
+  @include image-set('../../img/banner');
+
+  &__container {
+    .text-wrap {
+      margin-bottom: 49px;
+      padding-top: 5px;
+      width: 39.5%;
+
+      &__descr {
+        font: 400 48px / 57px $font-f;
+        color: $white;
+      }
+    }
+
+    .btn {
+      padding: 22px 35px;
+    }
+  }
+}
+

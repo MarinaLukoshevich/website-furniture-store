@@ -1,0 +1,179 @@
+@mixin flex-y-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin flex-xy-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-space {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-end-space {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+
+@mixin flexC {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@mixin flexC-x-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+
+
+@mixin image-set($pathToImage) {
+  background-image: url("#{$pathToImage}.jpg");
+  background-image: image-set("#{$pathToImage}.webp" type("image/webp"),
+    "#{$pathToImage}.jpg" type("image/jpg"));
+}
+
+
+@mixin bgColor() {
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: -200%;
+    right: -200%;
+    bottom: 0;
+    background-color: $grey-l;
+  }
+}
+
+
+@mixin clickZone-0() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+@mixin clickZone-3() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    z-index: -1;
+    background-color: $primary-l;
+    opacity: 0;
+    transition: opacity $tr;
+  }
+}
+
+@mixin clickZoneX-7() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -7px;
+    right: -7px;
+    bottom: 0px;
+    z-index: -1;
+    background-color: $pink-v;
+    opacity: 0;
+    transition: $tr;
+    transition-property: background-color, opacity;
+  }
+}
+
+@mixin borderBot() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color $tr;
+  }
+}
+
+
+@mixin discount() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0;
+    @include  flex-xy-center;
+    padding-right: 10px;
+    width: 82px;
+    height: 34px;
+    font: 700 14px / 19px $font-f;
+    color: $white;
+    background: url('../../img/discount.svg') no-repeat center / cover;
+  }
+}
+
+
+@mixin priceInitial() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 130%;
+    width: 120%;
+    font: 400 16px / 21px $font-f;
+    color: $grey;
+    text-decoration: line-through;
+  }
+}
+
+
+@mixin starReting() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding-left: 22.5px;
+    font: 400 16px / 20px $font-f;
+    color: $orange;
+    background: url('../../img/star.svg') no-repeat left center / 15px 15px;
+  }
+}
+
+
+@mixin usefulImg() {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 426px;
+    background: no-repeat center / cover;
+    @include image-set('../../img/useful1');
+  }
+}

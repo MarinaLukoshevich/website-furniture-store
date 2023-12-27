@@ -1,0 +1,55 @@
+.footer {
+  .foot {
+    position: relative;
+    padding: 24px 0;
+    @include bgColor;
+
+    &::after {
+      background-color: $grey-md;
+    }
+
+    &__wrap {
+      @include flex-center-space;
+      gap: 112px;
+    }
+
+    &__logoSoc {
+      @include flexC;
+      align-items: flex-start;
+      gap: 28px;
+    }
+
+    &__nav {
+      flex-basis: 66%;
+
+      .nav__head {
+        display: flex;
+        justify-content: space-between;
+        gap: 112px;
+
+        &-item {
+          .title4 {
+            display: block;
+            margin-bottom: 10px;
+          }
+
+          .list {
+            @include flexC;
+            gap: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .copy {
+    padding: 5px 0;
+    text-align: center;
+    background-color: $grey-l;
+
+    &__text {
+      line-height: 19px;
+      color: $grey;
+    }
+  }
+}

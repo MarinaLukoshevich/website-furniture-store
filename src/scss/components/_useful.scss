@@ -1,0 +1,41 @@
+.useful {
+  .titleArrows {
+    @include flex-center-space;
+
+    .title2 {
+      margin-bottom: 28px;
+    }
+  }
+
+  &__wrap {
+    .useful-swiper {
+      .swiper-wrapper {
+        .useful__slide {
+          .useful-card {
+            position: relative;
+            @include usefulImg;
+          }
+
+          @each $selector,
+          $img in ('.card1': 'img/useful1',
+            '.card2': 'img/useful2',
+            '.card3': 'img/useful3',
+            '.card4': 'img/useful4',
+            '.card5': 'img/useful5',
+          ) {
+
+            #{$selector} {
+              &::after {
+                @include image-set('../../' + $img);
+              }
+            }
+          }
+
+          .text {
+            min-height: 98px;
+          }
+        }
+      }
+    }
+  }
+}

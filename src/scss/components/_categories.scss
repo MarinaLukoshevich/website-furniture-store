@@ -1,0 +1,36 @@
+.categ {
+  padding: 70px 0;
+
+  .cat {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 511px 405px;
+    grid-auto-rows: 405px;
+    gap: 32px;
+    grid-template-areas:
+      'c1 c1 c1 c2 c2 c2'
+      'c3 c3 c4 c4 c5 c5';
+
+    .cat-card {
+      background: no-repeat left 121px / 82%;
+    }
+
+    $cards: '.card1' c1 'img/cat1',
+      '.card2' c2 'img/cat2',
+      '.card3' c3 'img/cat3' 75%,
+      '.card4' c4 'img/cat4' 82%,
+      '.card5' c5 'img/cat5' 65%;
+
+    // деструктуризация
+    @each $selector,
+    $gridName,
+    $img,
+    $imgSize in $cards {
+      #{$selector} {
+        grid-area: $gridName;
+        @include image-set('../../' + $img);
+        background-size: $imgSize;
+      }
+    }
+  }
+}

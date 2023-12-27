@@ -1,0 +1,7 @@
+@mixin hover {
+  @media (min-width: 1201px) and (any-hover: hover) {
+    &:hover:not(:active) {
+      @content;
+    }
+  }
+}
